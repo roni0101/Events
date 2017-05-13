@@ -1,0 +1,195 @@
+html, body {
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none; }
+
+ul, li {
+  margin: 0;
+  padding: 0; }
+
+li {
+  list-style: none; }
+
+body {
+  background: #F5F5F5;
+  font-family: 'Varela Round', sans-serif; }
+
+* {
+  box-sizing: border-box; }
+
+h2 {
+  text-align: center; }
+
+.container {
+  display: block;
+  width: 90%;
+  height: auto;
+  min-height: calc(100vh - 300px);
+  margin: 100px auto;
+  padding: 50px 0 10px 0;
+  background-color: white;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); }
+
+@media only screen and (min-width: 601px) and (max-width: 901px) {
+  .container {
+    width: 80%; } }
+
+@media only screen and (min-width: 901px) {
+  .container {
+    width: 80%; } }
+
+.form {
+  width: 90%;
+  max-width: 300px;
+  display: block;
+  margin: auto;
+  padding: 10px 0; }
+  .form .form-control {
+    margin-bottom: 20px;
+    width: 100%; }
+  .form .form-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; }
+    .form .form-row .form-control {
+      width: 100%; }
+  .form label, .form input {
+    text-align: left;
+    width: 100%;
+    display: block; }
+  .form label {
+    color: #1E88E5;
+    font-weight: bold; }
+  .form input {
+    line-height: 50px;
+    border: 1px solid #4DB6AC;
+    padding-left: 10px; }
+    .form input::placeholder {
+      color: rgba(0, 0, 0, 0.3); }
+
+@media only screen and (min-width: 601px) and (max-width: 901px) {
+  .form {
+    width: 60%; }
+    .form .form-row {
+      width: 100%;
+      display: flex;
+      justify-content: space-between; }
+      .form .form-row .form-control {
+        width: 48%; } }
+
+@media only screen and (min-width: 901px) {
+  .form {
+    width: 40%; }
+    .form .form-row {
+      width: 100%;
+      display: flex;
+      justify-content: space-between; }
+      .form .form-row .form-control {
+        width: 48%; } }
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer; }
+
+.btn-primary {
+  background-color: #1E88E5;
+  color: white; }
+  .btn-primary:hover {
+    background-color: #1976D2;
+    color: white; }
+
+.btn-default {
+  background-color: white;
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.2); }
+  .btn-default:hover {
+    background-color: rgba(0, 0, 0, 0.1); }
+
+.icon {
+  width: 20px;
+  height: 20px; }
+
+.text-main {
+  color: #1E88E5; }
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  min-height: 50px;
+  background-color: #1976D2; }
+  .navbar a {
+    color: white; }
+  .navbar .nav-brand, .navbar .hide-nav {
+    position: absolute;
+    top: 0;
+    height: 50px;
+    display: flex;
+    align-items: center; }
+  .navbar .nav-brand {
+    left: 10%; }
+  .navbar .hide-nav {
+    right: 10%;
+    font-size: 24px;
+    color: white;
+    cursor: pointer; }
+    .navbar .hide-nav i {
+      padding: 10px; }
+  .navbar ul {
+    position: relative;
+    margin-top: 50px;
+    display: none; }
+    .navbar ul li {
+      height: 50px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2); }
+      .navbar ul li:first-child {
+        border-top-color: rgba(255, 255, 255, 0.5); }
+      .navbar ul li a {
+        width: 100%;
+        display: inline-block;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white; }
+        .navbar ul li a:hover, .navbar ul li a.active {
+          background-color: rgba(0, 0, 0, 0.2); }
+    .navbar ul [data-auth="member"] {
+      display: none; }
+
+@media only screen and (min-width: 901px) {
+  .navbar {
+    display: flex; }
+    .navbar .hide-nav {
+      display: none; }
+    .navbar ul {
+      position: absolute;
+      right: 10%;
+      margin: 0;
+      display: inline-block; }
+      .navbar ul li {
+        display: inline-block;
+        border-top: none; }
+        .navbar ul li a {
+          padding: 0 20px; } }
+
+footer {
+  width: 100%;
+  height: 100px;
+  background-color: #1976D2;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.wdw {
+  display: none; }
+
+#wdw-home {
+  display: block; }

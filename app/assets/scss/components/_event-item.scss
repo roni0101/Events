@@ -1,0 +1,21 @@
+#event-item time, p, #logo{
+	font-weight: bold;	
+}
+
+#member-total, #logo{
+	font-size: 14px;
+	color:rgba(0,0,0, 0.4);	
+}
+
+#event-title p{
+	color:$main-color;	
+}
+
+#logo{
+	text-align: right;
+}
+
+#event-item{
+	border:1px solid $b-main-color;
+	padding:10px;
+}

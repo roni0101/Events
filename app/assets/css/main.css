@@ -115,6 +115,23 @@ h2 {
 .text-main {
   color: #1E88E5; }
 
+#event-item time, p, #logo {
+  font-weight: bold; }
+
+#member-total, #logo {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.4); }
+
+#event-title p {
+  color: #1E88E5; }
+
+#logo {
+  text-align: right; }
+
+#event-item {
+  border: 1px solid #4DB6AC;
+  padding: 10px; }
+
 .navbar {
   position: fixed;
   top: 0;

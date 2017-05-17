@@ -115,20 +115,19 @@ h2 {
 .text-main {
   color: #1E88E5; }
 
-#event-item time, p, #logo {
-  font-weight: bold; }
-
-#member-total, #logo {
-  font-size: 14px;
+.text-secondary {
   color: rgba(0, 0, 0, 0.4); }
 
-#event-title p {
-  color: #1E88E5; }
+.date-time, .event-title p, .logo {
+  font-weight: bold; }
 
-#logo {
+.logo, .event-title span {
+  font-size: 14px; }
+
+.logo {
   text-align: right; }
 
-#event-item {
+.event-item {
   border: 1px solid #4DB6AC;
   padding: 10px; }
 

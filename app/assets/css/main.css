@@ -1,5 +1,3 @@
-/*$break-small: 601px;*/
-/*$break-large: 901px;*/
 html, body {
   margin: 0;
   padding: 0; }
@@ -33,11 +31,11 @@ h2 {
   padding: 50px 0 10px 0;
   background-color: white; }
 
-@media only screen and (min-width: 768px) and (max-width: 1280px) {
+@media only screen and (min-width: 768px) and (max-width: 992px) {
   .container {
     width: 80%; } }
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 992px) {
   .container {
     width: 80%; } }
 
@@ -70,7 +68,7 @@ h2 {
     .form input::placeholder {
       color: rgba(0, 0, 0, 0.3); }
 
-@media only screen and (min-width: 768px) and (max-width: 1280px) {
+@media only screen and (min-width: 768px) and (max-width: 992px) {
   .form {
     width: 60%; }
     .form .form-row {
@@ -80,7 +78,7 @@ h2 {
       .form .form-row .form-control {
         width: 48%; } }
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 992px) {
   .form {
     width: 40%; }
     .form .form-row {
@@ -147,7 +145,7 @@ h2 {
 .event-item {
   border: 1px solid #4DB6AC; }
 
-@media only screen and (min-width: 768px) and (max-width: 1280px) {
+@media only screen and (min-width: 768px) and (max-width: 992px) {
   .event-list {
     max-width: 90%; }
     .event-list .event-item {
@@ -159,7 +157,7 @@ h2 {
       width: 20vh;
       text-align: center; } }
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 992px) {
   .event-list {
     max-width: 75%; }
     .event-list .event-item {
@@ -212,7 +210,7 @@ h2 {
     .navbar ul [data-auth="member"] {
       display: none; }
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 992px) {
   .navbar {
     display: flex; }
     .navbar .hide-nav {

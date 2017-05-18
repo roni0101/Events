@@ -34,7 +34,7 @@
 	border:1px solid $b-main-color;
 }
 
-@include respond-to(medium){
+@include respond-to(medium) {
 	.event-list{
 		max-width: 90%;
 		
@@ -52,7 +52,7 @@
 	}
 }
 
-@include respond-to(large){
+@include respond-to(large) {
 	.event-list{
 		max-width: 75%;
 		.event-item{

@@ -1,7 +1,6 @@
-/*$break-small: 601px;*/
 $break-small: 768px;
-/*$break-large: 901px;*/
-$break-large: 1280px;
+$break-large: 992px;
+
 
 @mixin respond-to($media) {
   @if $media == medium {

@@ -24,12 +24,12 @@ var Setup = (function() {
     // PRIVATE FUNCTIONS
 
 	function _hideShowNav(){	
-		if( window.innerWidth < 901){
+		if( window.innerWidth < 992){
 			$navUL.toggle('blind', 300);
 		}
 	}
 	function _onWinResize() {
-		if( window.innerWidth > 900){
+		if( window.innerWidth > 992){
 			$navUL.show();
 		}
 	}

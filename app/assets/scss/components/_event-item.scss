@@ -20,7 +20,7 @@
 	display: inline-flex;	
 }
 
-.logo, .event-title span, .date-time{
+.logo, .event-title span, .date-time>p{
 	font-size: 14px;	
 }
 
@@ -33,20 +33,23 @@
 		max-width: 90%;		
 		.event-item{
 			display: flex;
-			height: 100px;
+			height: 150px;
 			.event-title{
-				width: 80%;
+				width: 60%;
 			}
 		}
 		.date-time{
 			background-color: $main-color;
 			flex-direction: column;	
 			color: white;
-			width: 100px;			
-			p{
+			width: 150px;
+			>p{
 				line-height:0;
 				text-align: center;
 			}
+			p:first-of-type{
+				padding-top: 25%;
+			}			
 		}
 	}
 }
@@ -56,17 +59,24 @@
 		max-width: 90%;		
 		.event-item{
 			display: flex;
-			height: 100px;
+			height: 150px;
 			.event-title{
-				width: 80%;
+				width: 60%;
 			}
 		}
 		.date-time{
 			background-color: $main-color;
 			flex-direction: column;	
 			color: white;
-			width: 100px;
-			text-align: center;	
+			width: 150px;
+			text-align: center;			
+			>p{
+				line-height:0;
+				text-align: center;	
+			}
+			:first-child{
+				padding-top: 25%;
+			}
 		}
 	}
 }

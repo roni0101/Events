@@ -136,7 +136,7 @@ h2 {
 .date-time {
   display: inline-flex; }
 
-.logo, .event-title span, .date-time {
+.logo, .event-title span, .date-time > p {
   font-size: 14px; }
 
 .event-item {
@@ -147,32 +147,39 @@ h2 {
     max-width: 90%; }
     .event-list .event-item {
       display: flex;
-      height: 100px; }
+      height: 150px; }
       .event-list .event-item .event-title {
-        width: 80%; }
+        width: 60%; }
     .event-list .date-time {
       background-color: #1E88E5;
       flex-direction: column;
       color: white;
-      width: 100px; }
-      .event-list .date-time p {
+      width: 150px; }
+      .event-list .date-time > p {
         line-height: 0;
-        text-align: center; } }
+        text-align: center; }
+      .event-list .date-time p:first-of-type {
+        padding-top: 25%; } }
 
 @media only screen and (min-width: 992px) {
   .event-list {
     max-width: 90%; }
     .event-list .event-item {
       display: flex;
-      height: 100px; }
+      height: 150px; }
       .event-list .event-item .event-title {
-        width: 80%; }
+        width: 60%; }
     .event-list .date-time {
       background-color: #1E88E5;
       flex-direction: column;
       color: white;
-      width: 100px;
-      text-align: center; } }
+      width: 150px;
+      text-align: center; }
+      .event-list .date-time > p {
+        line-height: 0;
+        text-align: center; }
+      .event-list .date-time :first-child {
+        padding-top: 25%; } }
 
 .navbar {
   position: fixed;

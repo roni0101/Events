@@ -25,12 +25,8 @@ var Auth = (function () {
 		});
 
 	}
+	
 
 
-return {
-	login:login
-}
 
 })();
-
-var user = Auth.login();

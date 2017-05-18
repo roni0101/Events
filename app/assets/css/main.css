@@ -149,7 +149,7 @@ h2 {
       display: flex;
       height: 150px; }
       .event-list .event-item .event-title {
-        width: 60%; }
+        width: 65%; }
     .event-list .date-time {
       background-color: #1E88E5;
       flex-direction: column;
@@ -168,7 +168,7 @@ h2 {
       display: flex;
       height: 150px; }
       .event-list .event-item .event-title {
-        width: 60%; }
+        width: 70%; }
     .event-list .date-time {
       background-color: #1E88E5;
       flex-direction: column;

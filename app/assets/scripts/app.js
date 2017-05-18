@@ -24,7 +24,7 @@ var App = (function () {
 		if( localStorage.eventAcc ){
 
 			var userAccout = JSON.parse( localStorage.eventAcc );
-
+			
 			if(userAccout.logedin == "yes"){
 				console.log("loged in");
 				// Append User status

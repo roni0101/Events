@@ -1,21 +1,62 @@
-#event-item time, p, #logo{
+.event-list{
+	width:90%;
+	max-width:300px;
+	display:block;
+	margin:auto;
+	padding:10px 0;
+	.event-item{
+		margin-bottom:20px;
+		width:100%;
+		>div{
+			padding: 10px;
+		}
+	}
+}
+
+.date-time, .event-title p, .logo{
 	font-weight: bold;	
 }
+.date-time{
+	display: inline-flex;	
+}
 
-#member-total, #logo{
+
+.logo, .event-title span, .date-time{
 	font-size: 14px;
-	color:rgba(0,0,0, 0.4);	
+	
 }
 
-#event-title p{
-	color:$main-color;	
-}
-
-#logo{
+.logo{
 	text-align: right;
 }
 
-#event-item{
+.event-item{
 	border:1px solid $b-main-color;
-	padding:10px;
+}
+
+@include respond-to(medium){
+	.event-list{
+		max-width: 90%;
+		
+		.event-item{
+			display: flex;
+		}
+		.date-time{
+			background-color: $main-color;
+			flex-direction: column;	
+			color: white;
+			width: 20vh;
+			text-align: center;			
+		}
+
+	}
+}
+
+@include respond-to(large){
+	.event-list{
+		max-width: 75%;
+		.event-item{
+			display: flex;
+		}
+	}
 }

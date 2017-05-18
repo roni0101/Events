@@ -1,3 +1,5 @@
+/*$break-small: 601px;*/
+/*$break-large: 901px;*/
 html, body {
   margin: 0;
   padding: 0; }
@@ -31,11 +33,11 @@ h2 {
   padding: 50px 0 10px 0;
   background-color: white; }
 
-@media only screen and (min-width: 601px) and (max-width: 901px) {
+@media only screen and (min-width: 768px) and (max-width: 1280px) {
   .container {
     width: 80%; } }
 
-@media only screen and (min-width: 901px) {
+@media only screen and (min-width: 1280px) {
   .container {
     width: 80%; } }
 
@@ -68,7 +70,7 @@ h2 {
     .form input::placeholder {
       color: rgba(0, 0, 0, 0.3); }
 
-@media only screen and (min-width: 601px) and (max-width: 901px) {
+@media only screen and (min-width: 768px) and (max-width: 1280px) {
   .form {
     width: 60%; }
     .form .form-row {
@@ -78,7 +80,7 @@ h2 {
       .form .form-row .form-control {
         width: 48%; } }
 
-@media only screen and (min-width: 901px) {
+@media only screen and (min-width: 1280px) {
   .form {
     width: 40%; }
     .form .form-row {
@@ -115,22 +117,53 @@ h2 {
 .text-main {
   color: #1E88E5; }
 
-#event-item time, p, #logo {
-  font-weight: bold; }
-
-#member-total, #logo {
-  font-size: 14px;
+.text-secondary {
   color: rgba(0, 0, 0, 0.4); }
 
-#event-title p {
-  color: #1E88E5; }
+.event-list {
+  width: 90%;
+  max-width: 300px;
+  display: block;
+  margin: auto;
+  padding: 10px 0; }
+  .event-list .event-item {
+    margin-bottom: 20px;
+    width: 100%; }
+    .event-list .event-item > div {
+      padding: 10px; }
 
-#logo {
+.date-time, .event-title p, .logo {
+  font-weight: bold; }
+
+.date-time {
+  display: inline-flex; }
+
+.logo, .event-title span, .date-time {
+  font-size: 14px; }
+
+.logo {
   text-align: right; }
 
-#event-item {
-  border: 1px solid #4DB6AC;
-  padding: 10px; }
+.event-item {
+  border: 1px solid #4DB6AC; }
+
+@media only screen and (min-width: 768px) and (max-width: 1280px) {
+  .event-list {
+    max-width: 90%; }
+    .event-list .event-item {
+      display: flex; }
+    .event-list .date-time {
+      background-color: #1E88E5;
+      flex-direction: column;
+      color: white;
+      width: 20vh;
+      text-align: center; } }
+
+@media only screen and (min-width: 1280px) {
+  .event-list {
+    max-width: 75%; }
+    .event-list .event-item {
+      display: flex; } }
 
 .navbar {
   position: fixed;
@@ -179,7 +212,7 @@ h2 {
     .navbar ul [data-auth="member"] {
       display: none; }
 
-@media only screen and (min-width: 901px) {
+@media only screen and (min-width: 1280px) {
   .navbar {
     display: flex; }
     .navbar .hide-nav {

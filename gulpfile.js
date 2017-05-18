@@ -7,9 +7,9 @@ var gulp = require('gulp'),
 // Task watch 
 
 gulp.task('watch', ['browserSync'], function () {
+	gulp.watch('./app/assets/scss/**/*.scss', ['sass']);
   gulp.watch('app/*', browserSync.reload);
-
-	gulp.watch('./app/assets/scss/**/*.scss', ['sass', browserSync.reload]);
+  gulp.watch('app/assets/scripts/*.js', browserSync.reload);
 
 });
 

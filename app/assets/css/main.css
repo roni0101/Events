@@ -159,7 +159,7 @@ h2 {
         line-height: 0;
         text-align: center; }
       .event-list .date-time p:first-of-type {
-        padding-top: 25%; } }
+        padding-top: 30%; } }
 
 @media only screen and (min-width: 992px) {
   .event-list {
@@ -178,7 +178,7 @@ h2 {
         line-height: 0;
         text-align: center; }
       .event-list .date-time p:first-of-type {
-        padding-top: 25%; } }
+        padding-top: 30%; } }
 
 .navbar {
   position: fixed;

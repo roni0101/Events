@@ -12,18 +12,15 @@
 		}
 	}
 }
-
 .date-time, .event-title p, .logo{
 	font-weight: bold;	
 }
 .date-time{
 	display: inline-flex;	
 }
-
 .logo, .event-title span, .date-time>p{
 	font-size: 14px;	
 }
-
 .event-item{
 	border:1px solid $b-main-color;	
 }
@@ -48,7 +45,7 @@
 				text-align: center;
 			}
 			p:first-of-type{
-				padding-top: 25%;
+				padding-top: 30%;
 			}			
 		}
 	}
@@ -74,7 +71,7 @@
 				text-align: center;
 			}
 			p:first-of-type{
-				padding-top: 25%;
+				padding-top: 30%;
 			}			
 		}
 	}

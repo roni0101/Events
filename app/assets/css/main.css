@@ -141,9 +141,6 @@ h2 {
 .logo, .event-title span, .date-time {
   font-size: 14px; }
 
-.logo {
-  text-align: right; }
-
 .event-item {
   border: 1px solid #4DB6AC; }
 
@@ -151,19 +148,33 @@ h2 {
   .event-list {
     max-width: 90%; }
     .event-list .event-item {
-      display: flex; }
+      display: flex;
+      height: 100px; }
+      .event-list .event-item .event-title {
+        width: 80%; }
     .event-list .date-time {
       background-color: #1E88E5;
       flex-direction: column;
       color: white;
-      width: 20vh;
-      text-align: center; } }
+      width: 100px; }
+      .event-list .date-time p {
+        line-height: 0;
+        text-align: center; } }
 
 @media only screen and (min-width: 1280px) {
   .event-list {
-    max-width: 75%; }
+    max-width: 90%; }
     .event-list .event-item {
-      display: flex; } }
+      display: flex;
+      height: 100px; }
+      .event-list .event-item .event-title {
+        width: 80%; }
+    .event-list .date-time {
+      background-color: #1E88E5;
+      flex-direction: column;
+      color: white;
+      width: 100px;
+      text-align: center; } }
 
 .navbar {
   position: fixed;
@@ -240,5 +251,8 @@ footer {
 .wdw {
   display: none; }
 
-#wdw-home {
+/*#wdw-home{
+	display: block;
+}*/
+#wdw-search {
   display: block; }

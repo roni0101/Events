@@ -173,12 +173,11 @@ h2 {
       background-color: #1E88E5;
       flex-direction: column;
       color: white;
-      width: 150px;
-      text-align: center; }
+      width: 150px; }
       .event-list .date-time > p {
         line-height: 0;
         text-align: center; }
-      .event-list .date-time :first-child {
+      .event-list .date-time p:first-of-type {
         padding-top: 25%; } }
 
 .navbar {

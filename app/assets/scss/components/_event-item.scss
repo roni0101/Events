@@ -69,14 +69,13 @@
 			flex-direction: column;	
 			color: white;
 			width: 150px;
-			text-align: center;			
 			>p{
 				line-height:0;
-				text-align: center;	
+				text-align: center;
 			}
-			:first-child{
+			p:first-of-type{
 				padding-top: 25%;
-			}
+			}			
 		}
 	}
 }

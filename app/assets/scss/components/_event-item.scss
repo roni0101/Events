@@ -12,51 +12,67 @@
 		}
 	}
 }
-
 .date-time, .event-title p, .logo{
 	font-weight: bold;	
 }
 .date-time{
 	display: inline-flex;	
 }
-
-
-.logo, .event-title span, .date-time{
-	font-size: 14px;
-	
+.logo, .event-title span, .date-time>p{
+	font-size: 14px;	
 }
-
-.logo{
-	text-align: right;
-}
-
 .event-item{
-	border:1px solid $b-main-color;
+	border:1px solid $b-main-color;	
 }
 
 @include respond-to(medium) {
 	.event-list{
-		max-width: 90%;
-		
+		max-width: 90%;		
 		.event-item{
 			display: flex;
+			height: 150px;
+			.event-title{
+				width: 65%;
+			}
 		}
 		.date-time{
 			background-color: $main-color;
 			flex-direction: column;	
 			color: white;
-			width: 20vh;
-			text-align: center;			
+			width: 150px;
+			>p{
+				line-height:0;
+				text-align: center;
+			}
+			p:first-of-type{
+				padding-top: 30%;
+			}			
 		}
-
 	}
 }
 
 @include respond-to(large) {
 	.event-list{
-		max-width: 75%;
+		max-width: 90%;		
 		.event-item{
 			display: flex;
+			height: 150px;
+			.event-title{
+				width: 70%;
+			}
+		}
+		.date-time{
+			background-color: $main-color;
+			flex-direction: column;	
+			color: white;
+			width: 150px;
+			>p{
+				line-height:0;
+				text-align: center;
+			}
+			p:first-of-type{
+				padding-top: 30%;
+			}			
 		}
 	}
 }

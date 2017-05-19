@@ -136,11 +136,8 @@ h2 {
 .date-time {
   display: inline-flex; }
 
-.logo, .event-title span, .date-time {
+.logo, .event-title span, .date-time > p {
   font-size: 14px; }
-
-.logo {
-  text-align: right; }
 
 .event-item {
   border: 1px solid #4DB6AC; }
@@ -149,19 +146,39 @@ h2 {
   .event-list {
     max-width: 90%; }
     .event-list .event-item {
-      display: flex; }
+      display: flex;
+      height: 150px; }
+      .event-list .event-item .event-title {
+        width: 65%; }
     .event-list .date-time {
       background-color: #1E88E5;
       flex-direction: column;
       color: white;
-      width: 20vh;
-      text-align: center; } }
+      width: 150px; }
+      .event-list .date-time > p {
+        line-height: 0;
+        text-align: center; }
+      .event-list .date-time p:first-of-type {
+        padding-top: 30%; } }
 
 @media only screen and (min-width: 992px) {
   .event-list {
-    max-width: 75%; }
+    max-width: 90%; }
     .event-list .event-item {
-      display: flex; } }
+      display: flex;
+      height: 150px; }
+      .event-list .event-item .event-title {
+        width: 70%; }
+    .event-list .date-time {
+      background-color: #1E88E5;
+      flex-direction: column;
+      color: white;
+      width: 150px; }
+      .event-list .date-time > p {
+        line-height: 0;
+        text-align: center; }
+      .event-list .date-time p:first-of-type {
+        padding-top: 30%; } }
 
 .navbar {
   position: fixed;
@@ -238,5 +255,8 @@ footer {
 .wdw {
   display: none; }
 
-#wdw-home {
+/*#wdw-home{
+	display: block;
+}*/
+#wdw-search {
   display: block; }

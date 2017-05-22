@@ -1,0 +1,29 @@
+<h2>{{ TITLE }}</h2>
+
+<div class="details-list">
+	<div class="details-item">
+		<i class="fa fa-clock-o text-main"></i>
+		<span>{{ TIME }}</span>
+	</div>
+	<div class="details-item">
+		<i class="fa fa-calendar text-main"></i>
+		<span>{{ DATE }}</span>
+	</div>
+	<div class="details-item">
+		<i class="fa fa-users text-main"></i>
+		<span>{{ MEMBERS }} / {{ SEATS }}</span>
+	</div>
+	<div class="details-item">
+		<i class="fa fa-map-marker text-main"></i>
+		<span>{{ LOCATION }}</span>
+	</div>
+</div>
+<div class="text-secondary">
+	<p>{{ DESCRIPTION }}</p>
+</div>
+<div class="row">
+	<i class="fa fa-check text-main"></i><span>You are signed up for this event</span>
+</div>
+<div class="row">
+	<button class="btn btn-primary" data-id="{{ EVENTID }}">I AM GOING</button>
+</div>

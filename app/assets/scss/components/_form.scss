@@ -21,7 +21,7 @@
 	}
 
 
-	label, input{
+	label, input, textarea{
 		text-align: left;
 		width:100%;
 		display: block;
@@ -31,14 +31,17 @@
 		font-weight: bold;
 	}
 
-	input{
-		line-height: 50px;
-		border:1px solid $b-main-color;
-		padding-left:10px;
+	input, textarea{
+		border:1px solid rgba(0,0,0, 0.3);
+		padding:10px;
 
 		&::placeholder{
 			color:rgba(0,0,0, 0.3);
 		}
+	}
+	textarea{
+		min-height: 100px;
+		padding:10px;
 	}
 }
 

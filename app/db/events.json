@@ -1,0 +1,12 @@
+[
+	{
+		"eventId":"1",
+		"title":"From development to production",
+		"description":"This is the description of the event",
+		"time":"15:30",
+		"date":"1 June",
+		"organizer":"TechEvent",
+		"members":58,
+		"seats":100
+	}
+]

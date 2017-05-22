@@ -9,6 +9,10 @@ var Preload = (function () {
 			name:'event-item.html'
 		},
 		{
+			type:'templates',
+			name:'event.html'
+		},
+		{
 			type:'data',
 			name:'events.json'
 		}

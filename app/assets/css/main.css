@@ -149,7 +149,10 @@ h2 {
       display: flex;
       height: 150px; }
       .event-list .event-item .event-title {
-        width: 65%; }
+        width: 60%; }
+      .event-list .event-item .icon {
+        float: top-right;
+        max-width: 10%; }
     .event-list .date-time {
       background-color: #1E88E5;
       flex-direction: column;
@@ -168,7 +171,10 @@ h2 {
       display: flex;
       height: 150px; }
       .event-list .event-item .event-title {
-        width: 70%; }
+        width: 65%; }
+      .event-list .event-item .icon {
+        float: top-right;
+        max-width: 10%; }
     .event-list .date-time {
       background-color: #1E88E5;
       flex-direction: column;

@@ -1,0 +1,9 @@
+.details-list{
+	display:flex;
+	flex-wrap:wrap;
+	// flex-direction:column;
+
+	.details-item{
+		margin:0 10px 10px 0;
+	}
+}

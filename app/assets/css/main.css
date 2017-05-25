@@ -54,19 +54,21 @@ h2 {
     justify-content: space-between; }
     .form .form-row .form-control {
       width: 100%; }
-  .form label, .form input {
+  .form label, .form input, .form textarea {
     text-align: left;
     width: 100%;
     display: block; }
   .form label {
-    color: #1E88E5;
+    color: #2196F3;
     font-weight: bold; }
-  .form input {
-    line-height: 50px;
-    border: 1px solid #4DB6AC;
-    padding-left: 10px; }
-    .form input::placeholder {
+  .form input, .form textarea {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 10px; }
+    .form input::placeholder, .form textarea::placeholder {
       color: rgba(0, 0, 0, 0.3); }
+  .form textarea {
+    min-height: 100px;
+    padding: 10px; }
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   .form {
@@ -95,7 +97,7 @@ h2 {
   cursor: pointer; }
 
 .btn-primary {
-  background-color: #1E88E5;
+  background-color: #2196F3;
   color: white; }
   .btn-primary:hover {
     background-color: #1976D2;
@@ -113,17 +115,18 @@ h2 {
   height: 20px; }
 
 .text-main {
-  color: #1E88E5; }
+  color: #2196F3; }
 
 .text-secondary {
-  color: rgba(0, 0, 0, 0.4); }
+  color: rgba(0, 0, 0, 0.5); }
 
 .event-list {
   width: 90%;
   max-width: 300px;
   display: block;
   margin: auto;
-  padding: 10px 0; }
+  padding: 10px 0;
+  cursor: pointer; }
   .event-list .event-item {
     margin-bottom: 20px;
     width: 100%; }
@@ -154,7 +157,7 @@ h2 {
         float: top-right;
         max-width: 10%; }
     .event-list .date-time {
-      background-color: #1E88E5;
+      background-color: #2196F3;
       flex-direction: column;
       color: white;
       width: 150px; }
@@ -176,7 +179,7 @@ h2 {
         float: top-right;
         max-width: 10%; }
     .event-list .date-time {
-      background-color: #1E88E5;
+      background-color: #2196F3;
       flex-direction: column;
       color: white;
       width: 150px; }
@@ -185,6 +188,48 @@ h2 {
         text-align: center; }
       .event-list .date-time p:first-of-type {
         padding-top: 30%; } }
+
+.search-bar {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2196F3;
+  margin-bottom: 50px; }
+  .search-bar .form-control {
+    display: flex;
+    align-items: center; }
+    .search-bar .form-control input {
+      text-align: left;
+      width: 100%;
+      display: block; }
+    .search-bar .form-control input {
+      line-height: 30px;
+      border: none;
+      padding: 0;
+      padding-left: 10px; }
+      .search-bar .form-control input::placeholder {
+        color: rgba(0, 0, 0, 0.3); }
+    .search-bar .form-control i {
+      background-color: white;
+      line-height: 30px;
+      width: 50px;
+      border-right: 1px solid #2196F3;
+      text-align: center;
+      color: #2196F3; }
+
+.details-list {
+  display: flex;
+  flex-wrap: wrap; }
+  .details-list .details-item {
+    margin: 0 10px 10px 0; }
+
+.row {
+  margin: 20px auto; }
 
 .navbar {
   position: fixed;
@@ -261,8 +306,5 @@ footer {
 .wdw {
   display: none; }
 
-/*#wdw-home{
-	display: block;
-}*/
-#wdw-search {
+#wdw-create-event {
   display: block; }

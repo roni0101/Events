@@ -6,13 +6,20 @@ var App = (function () {
 	$eventsList = $('.event-list');
 
 	$eventPage = $('#wdw-event .container');
+
+	$nav = $('.navbar');
 	
 	// Init
 	function init() {
 
+		Auth.init();
+
 		// Get event template and events data from Preloader
 		var tempEvent = Preload.getSource('event-item.html');
 		var dataEvents = Preload.getSource('events.json');
+
+		var navUl = Preload.getSource('nav-ul.html');
+		var navUlMember = Preload.getSource('nav-ul-member.html');
 
 
 		// Populate template with data
@@ -39,10 +46,15 @@ var App = (function () {
 			var userAccout = JSON.parse( localStorage.eventAcc );
 			
 			if(userAccout.logedin == "yes"){
-				console.log("loged in");
+
+				$nav.append(navUlMember)
 				// Append User status
 				// Display data based on that 
+			}else{
+				$nav.append(navUl);
 			}
+		}else{
+			$nav.append(navUl);
 		}
 
 		// Run app

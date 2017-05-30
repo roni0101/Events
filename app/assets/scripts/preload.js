@@ -13,6 +13,14 @@ var Preload = (function () {
 			name:'event.html'
 		},
 		{
+			type:'templates',
+			name:'nav-ul.html'
+		},
+		{
+			type:'templates',
+			name:'nav-ul-member.html'
+		},
+		{
 			type:'data',
 			name:'events.json'
 		}

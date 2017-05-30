@@ -11,6 +11,7 @@ var Setup = (function() {
 
 	var	$nav = $('.navbar');
 	var $navUL = $nav.find('ul');
+	var $navLi = $nav.find('li');
 	var	$navAnchors = $navUL.find('li>a');
 
 
@@ -31,6 +32,9 @@ var Setup = (function() {
 	function _onWinResize() {
 		if( window.innerWidth > 992){
 			$navUL.show();
+			$navLi.css('display','inline-block');
+		}else{
+			$navLi.css('display','block');
 		}
 	}
 	function _stopFormSubmit(e) {
@@ -72,6 +76,7 @@ var Setup = (function() {
 		$wdw.hide();
 		$(windowToShow).show();
 	}
+
 
 
 	//if browser doesn't support input type="date"

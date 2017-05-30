@@ -20,6 +20,17 @@
 		}
 	}
 
+	.form-error{
+		background-color: #FFCDD2;
+		padding: 10px;
+		display: none;
+	}
+
+
+	.form-message{
+		color: #B71C1C;
+	}
+
 
 	label, input, textarea{
 		text-align: left;

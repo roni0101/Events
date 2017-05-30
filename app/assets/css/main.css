@@ -54,6 +54,12 @@ h2 {
     justify-content: space-between; }
     .form .form-row .form-control {
       width: 100%; }
+  .form .form-error {
+    background-color: #FFCDD2;
+    padding: 10px;
+    display: none; }
+  .form .form-message {
+    color: #B71C1C; }
   .form label, .form input, .form textarea {
     text-align: left;
     width: 100%;
@@ -306,5 +312,5 @@ footer {
 .wdw {
   display: none; }
 
-#wdw-create-event {
+#wdw-home {
   display: block; }

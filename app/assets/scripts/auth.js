@@ -11,6 +11,7 @@ var Auth = (function () {
 	var $createWdw = $('#wdw-create-event');
 	var $loginWdw = $('#wdw-login');
 	var $registerWdw = $('#wdw-register');
+	var $eventWdw = $('#wdw-event');
 
 	var navUlMember;
 	var navUl;
@@ -50,11 +51,12 @@ var Auth = (function () {
 			}
 		}).done(function (response) {
 
+
 			if(response.status === 'success'){
+				var user = JSON.stringify(response.user);
 				error.hide();
-				$nav.find('ul').remove();
-				$nav.append(navUlMember);
-				localStorage.eventAcc = '{"logedin":"yes"}';
+				$nav.find('ul').empty().append(navUlMember);
+				localStorage.eventAcc = '{"logedin":"yes", "user":' + user + '}';
 				Setup.switchWindow('account');
 			}else{
 				error.show();
@@ -73,7 +75,8 @@ var Auth = (function () {
 		var userFirstName = $registerWdw.find('[name="first-name"]').val();
 		var userLastName = $registerWdw.find('[name="last-name"]').val();
 
-		console.log(userEmail, userPassword, userFirstName, userLastName);
+		var error = $registerWdw.find('.form-error');
+		error.hide();
 
 		$.ajax({
 			url:urlRegister,
@@ -87,7 +90,15 @@ var Auth = (function () {
 			}
 		}).done(function (response) {
 			
-			if(response.status === "fail"){}
+			if(response.status === "fail"){
+				error.show();
+			}else{
+				var user = JSON.stringify(response.user);
+				error.hide();
+				$nav.find('ul').empty().append(navUlMember);
+				localStorage.eventAcc = '{"logedin":"yes", "user":' + user + '}';
+				Setup.switchWindow('account');
+			}
 
 		});
 		
@@ -96,8 +107,7 @@ var Auth = (function () {
 	function logout() {
 		if(localStorage.eventAcc){
 			localStorage.eventAcc = "";
-			$nav.find('ul').remove();
-			$nav.append(navUl);
+			$nav.find('ul').empty().append(navUl);
 			Setup.switchWindow('home');
 		}
 	}
@@ -148,6 +158,61 @@ var Auth = (function () {
 	}
 
 
+	var urlSignForEvent = api + 'user/sign-for-event.php';
+	function signForEvent(e) {
+		var btn = $(e.target);
+		var eventId = btn.attr('data-id');
+		var user = JSON.parse(localStorage.eventAcc).user;
+		var userId = user.id;
+		
+
+		$.ajax({
+			url:urlSignForEvent,
+			method:"POST",
+			dataType:"JSON",
+			data:{
+				"userId":userId,
+				"eventId":eventId
+			}
+		}).done(function (response) {
+			$eventWdw.find('[data-status]').css('display', 'none');
+			$eventWdw.find('[data-status="signed"]').css('display', 'block');
+			var userLS = JSON.parse(localStorage.eventAcc);
+			userLS.user = response.user;
+			localStorage.eventAcc = JSON.stringify(userLS);
+			Events.addMember(eventId);
+		});
+	}
+
+
+	var urlSignOfEvent = api + 'user/sign-of-event.php';
+	function signOfEvent(e) {
+		var btn = $(e.target);
+		var eventId = btn.attr('data-id');
+		var user = JSON.parse(localStorage.eventAcc).user;
+		var userId = user.id;
+		
+
+		$.ajax({
+			url:urlSignOfEvent,
+			method:"POST",
+			dataType:"JSON",
+			data:{
+				"userId":userId,
+				"eventId":eventId
+			}
+		}).done(function (response) {
+			$eventWdw.find('[data-status]').css('display', 'none');
+			$eventWdw.find('[data-status="logged"]').css('display', 'block');
+			var userLS = JSON.parse(localStorage.eventAcc);
+			userLS.user = response.user;
+			localStorage.eventAcc = JSON.stringify(userLS);
+			Events.removeMember(eventId);
+		});
+	}
+
+
+
 	// Public functions
 
 
@@ -158,6 +223,8 @@ var Auth = (function () {
 	$doc.on('click', '.action-login', login);
 	$doc.on('click', '.action-logout', logout);
 	$doc.on('click', '.action-register', register);
+	$doc.on('click', '.action-sign-for-event', signForEvent);
+	$doc.on('click', '.action-sign-of-event', signOfEvent);
 
 
 

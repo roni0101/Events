@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale = 1">
@@ -28,6 +29,7 @@
 	<div class="hide-nav">
 		<span><i class="fa fa-bars" aria-hidden="true"></i></span>
 	</div>
+	<ul></ul>
 </nav>
 
 
@@ -48,7 +50,7 @@
 			<div class="search-bar">
 				<div class="form-control">
 					<i class="fa fa-search"></i>
-					<input type="text">
+					<input type="text" name="event-name">
 				</div>
 			</div>
 
@@ -121,6 +123,10 @@
 		
 		<div class="container">
 			<h2>ACCOUNT</h2>
+			<div class="row">
+				<span>Roni</span>
+				<span>Radev</span>
+			</div>
 		</div>
 
 	</div>
@@ -130,6 +136,12 @@
 		<div class="container">
 			<form class="form">
 
+				<div class="form-control">
+					<div class="form-error">
+						<span class="form-message">Email is already taken</span>
+					</div>
+				</div>
+			
 				<div class="form-control">
 					<label> Email: </label>
 					<input type="email" name="email" placeholder="Email" required="" />
@@ -192,6 +204,7 @@
 	<!-- jQuery  UI -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 	
+	<script src="assets/scripts/event.js"></script>
 	<script src="assets/scripts/preload.js"></script>
 	<script src="assets/scripts/setup.js"></script>
 	<script src="assets/scripts/app.js"></script>

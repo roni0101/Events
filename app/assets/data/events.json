@@ -1,24 +1,13 @@
 [
     {
-        "id": "592364f1066ca592364f1066cd",
-        "title": "First event",
+        "id": "592d626bf181a592d626bf1824",
+        "title": "Intro to Front-end development",
         "organizer": "COPEN-TECH",
-        "description": "Description",
-        "date": "25 May",
-        "time": "16:30",
-        "seats": "199",
-        "members": null,
-        "location": "Somewhere"
-    },
-    {
-        "id": "5923654b65ceb5923654b65cee",
-        "title": "sdf",
-        "organizer": "sdf",
-        "description": "sdf",
-        "date": "31 May",
-        "time": "11:11",
-        "seats": "12",
-        "members": 0,
-        "location": "sdf"
+        "description": "Front-end web development, is the practice of producing HTML, CSS and JavaScript for a website or Web Application so that a user can see and interact with them directly. The challenge associated with front end development is that the tools and techniques used to create the front end of a website change constantly and so the developer needs to constantly be aware of how the field is developing",
+        "date": "21 June",
+        "time": "17:30",
+        "seats": "100",
+        "members": 10,
+        "location": "Lygten 37"
     }
 ]

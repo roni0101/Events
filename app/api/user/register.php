@@ -6,7 +6,7 @@ $user = json_decode('{}');
 
 $result = json_decode('{}');
 $result->status = "success";
-$result->response = "";
+$result->user = "";
 
 // get first name, last name ,email and passwrod from POST
 
@@ -44,6 +44,7 @@ $user->email = $email;
 $user->password = $password;
 $user->firstName = $firstName;
 $user->lastName = $lastName;
+$user->eventsList = [];
 
 
 // Push object to array of users
@@ -56,7 +57,7 @@ file_put_contents($fileUsers, json_encode($arrUsers, JSON_PRETTY_PRINT));
 
 // Return $result
 
-$result->response = $user;
+$result->user = $user;
 
 echo json_encode($result);
 

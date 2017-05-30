@@ -1,9 +1,10 @@
 [
     {
-        "id": "592c1dd32a924",
-        "email": "myeamil",
+        "id": "592d6290a265d",
+        "email": "admin",
         "password": "123",
-        "firstName": "Roni",
-        "lastName": "Radev"
+        "firstName": "Admin",
+        "lastName": "Admin",
+        "eventsList": []
     }
 ]

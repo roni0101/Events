@@ -10,10 +10,7 @@ var Setup = (function() {
 	var $wdw = $(".wdw");
 
 	var	$nav = $('.navbar');
-	var $navUL = $nav.find('ul');
-	var $navLi = $nav.find('li');
-	var	$navAnchors = $navUL.find('li>a');
-
+	var	$navUL = $nav.find('ul');
 
     // INITIALIZE
 
@@ -32,9 +29,6 @@ var Setup = (function() {
 	function _onWinResize() {
 		if( window.innerWidth > 992){
 			$navUL.show();
-			$navLi.css('display','inline-block');
-		}else{
-			$navLi.css('display','block');
 		}
 	}
 	function _stopFormSubmit(e) {
@@ -68,7 +62,6 @@ var Setup = (function() {
 		var $activeNavAnchor = $navUL.find('.active');
 
 		$activeNavAnchor.removeClass('active');
-
 		$newActiveAnchor = $navUL.find('a[data-wdw= ' + wdwName + ']');
 		$newActiveAnchor.addClass('active');
 

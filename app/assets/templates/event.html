@@ -11,7 +11,7 @@
 	</div>
 	<div class="details-item">
 		<i class="fa fa-users text-main"></i>
-		<span>{{ MEMBERS }} / {{ SEATS }}</span>
+		<span> <span data-members="{{ EVENTID }}">{{ MEMBERS }}</span> / {{ SEATS }}</span>
 	</div>
 	<div class="details-item">
 		<i class="fa fa-map-marker text-main"></i>
@@ -22,8 +22,19 @@
 	<p>{{ DESCRIPTION }}</p>
 </div>
 <div class="row">
-	<i class="fa fa-check text-main"></i><span>You are signed up for this event</span>
-</div>
-<div class="row">
-	<button class="btn btn-primary" data-id="{{ EVENTID }}">I AM GOING</button>
+	<div data-status="signed">
+		<i class="fa fa-check text-main"></i><span class="text-secondary">You are signed up for this event</span>
+		<div class="row">
+			<button class="btn btn-danger action-sign-of-event" data-id="{{ EVENTID }}">CANCEL</button>
+		</div>
+	</div>
+	<div data-status="not-logged">
+		<span class="text-secondary">
+			You must be <a href="" class="text-main btn-switch" data-wdw="login">logged in</a> to reserve a seat
+		</span>		
+	</div>
+	<div data-status="logged">
+		<button class="btn btn-primary action-sign-for-event"  data-id="{{ EVENTID }}">I AM GOING</button>
+	</div>
+
 </div>

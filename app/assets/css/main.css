@@ -143,7 +143,10 @@ h2 {
   font-weight: bold; }
 
 .date-time {
-  display: inline-flex; }
+  display: inline-flex;
+  /*justify-content: space-between;*/ }
+  .date-time p:first-of-type {
+    padding-right: 1vw; }
 
 .logo, .event-title span, .date-time > p {
   font-size: 14px; }

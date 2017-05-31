@@ -1,20 +1,45 @@
 
 var Auth = (function () {
 
-	var api = 'http://localhost/Interface-exam/Events/app/api/';
+	var user = null;
 
 	// CACHE DOM
-	$createWdw = $('#wdw-create-event');
+
+	var $doc = $(document);
+	var $nav = $('.navbar');
+
+	var $createWdw = $('#wdw-create-event');
+	var $loginWdw = $('#wdw-login');
+	var $registerWdw = $('#wdw-register');
+	var $eventWdw = $('#wdw-event');
+
+	var navUlMember;
+	var navUl;
+
+	function init() {
+		navUlMember = Preload.getSource('nav-ul-member.html');
+		navUl = Preload.getSource('nav-ul.html');
+	}
 
 
-	var user = null;
+
+
+  // Links for ajax
+
+	var api = 'http://localhost/Interface-exam/Events/app/api/';
 
 	var urlLogin =  api + 'user/login.php';
 
-	function login(email, password){
 
-		var userEmail = email || "";
-		var userPassword = password || "";
+	// Private functions
+
+	function login(){
+
+		var userEmail = $loginWdw.find('[name="email"]').val();
+		var userPassword = $loginWdw.find('[name="password"]').val();
+
+		var error = $loginWdw.find('.form-error');
+		error.hide();
 
 		$.ajax({
 			method:"POST",
@@ -25,12 +50,68 @@ var Auth = (function () {
 				"password": userPassword
 			}
 		}).done(function (response) {
-			user = response.user;
-		}).fail(function (argument) {
-			console.log(argument);
+
+
+			if(response.status === 'success'){
+				var user = JSON.stringify(response.user);
+				error.hide();
+				$nav.find('ul').empty().append(navUlMember);
+				localStorage.eventAcc = '{"logedin":"yes", "user":' + user + '}';
+				Setup.switchWindow('account');
+			}else{
+				error.show();
+			}
 		});
 
 	}
+
+
+	var urlRegister = api + 'user/register.php';
+
+	function register() {
+
+		var userEmail = $registerWdw.find('[name="email"]').val();
+		var userPassword = $registerWdw.find('[name="password"]').val();
+		var userFirstName = $registerWdw.find('[name="first-name"]').val();
+		var userLastName = $registerWdw.find('[name="last-name"]').val();
+
+		var error = $registerWdw.find('.form-error');
+		error.hide();
+
+		$.ajax({
+			url:urlRegister,
+			method:"POST",
+			dataType:"JSON",
+			data:{
+				"email":userEmail,
+				"password":userPassword,
+				"firstName":userFirstName,
+				"lastName":userLastName,
+			}
+		}).done(function (response) {
+			
+			if(response.status === "fail"){
+				error.show();
+			}else{
+				var user = JSON.stringify(response.user);
+				error.hide();
+				$nav.find('ul').empty().append(navUlMember);
+				localStorage.eventAcc = '{"logedin":"yes", "user":' + user + '}';
+				Setup.switchWindow('account');
+			}
+
+		});
+		
+	}
+
+	function logout() {
+		if(localStorage.eventAcc){
+			localStorage.eventAcc = "";
+			$nav.find('ul').empty().append(navUl);
+			Setup.switchWindow('home');
+		}
+	}
+
 
 	var months = [
 		"January", "February", "March",
@@ -77,17 +158,79 @@ var Auth = (function () {
 	}
 
 
+	var urlSignForEvent = api + 'user/sign-for-event.php';
+	function signForEvent(e) {
+		var btn = $(e.target);
+		var eventId = btn.attr('data-id');
+		var user = JSON.parse(localStorage.eventAcc).user;
+		var userId = user.id;
+		
+
+		$.ajax({
+			url:urlSignForEvent,
+			method:"POST",
+			dataType:"JSON",
+			data:{
+				"userId":userId,
+				"eventId":eventId
+			}
+		}).done(function (response) {
+			$eventWdw.find('[data-status]').css('display', 'none');
+			$eventWdw.find('[data-status="signed"]').css('display', 'block');
+			var userLS = JSON.parse(localStorage.eventAcc);
+			userLS.user = response.user;
+			localStorage.eventAcc = JSON.stringify(userLS);
+			Events.addMember(eventId);
+		});
+	}
+
+
+	var urlSignOfEvent = api + 'user/sign-of-event.php';
+	function signOfEvent(e) {
+		var btn = $(e.target);
+		var eventId = btn.attr('data-id');
+		var user = JSON.parse(localStorage.eventAcc).user;
+		var userId = user.id;
+		
+
+		$.ajax({
+			url:urlSignOfEvent,
+			method:"POST",
+			dataType:"JSON",
+			data:{
+				"userId":userId,
+				"eventId":eventId
+			}
+		}).done(function (response) {
+			$eventWdw.find('[data-status]').css('display', 'none');
+			$eventWdw.find('[data-status="logged"]').css('display', 'block');
+			var userLS = JSON.parse(localStorage.eventAcc);
+			userLS.user = response.user;
+			localStorage.eventAcc = JSON.stringify(userLS);
+			Events.removeMember(eventId);
+		});
+	}
+
+
+
+	// Public functions
+
+
+
 	// Event listeners
 
-	var $doc = $(document);
-
 	$doc.on('click', '.act-create-event', createEvent);
+	$doc.on('click', '.action-login', login);
+	$doc.on('click', '.action-logout', logout);
+	$doc.on('click', '.action-register', register);
+	$doc.on('click', '.action-sign-for-event', signForEvent);
+	$doc.on('click', '.action-sign-of-event', signOfEvent);
 
 
-	return{
-		createEvent:createEvent
+
+	return {
+		init:init
 	}
-	
 
 
 

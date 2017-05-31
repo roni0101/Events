@@ -13,9 +13,8 @@ li {
   list-style: none; }
 
 body {
-  background: #F5F5F5;
+  background-color: #EEEEEE;
   font-family: 'Varela Round', sans-serif; }
-
 * {
   box-sizing: border-box; }
 
@@ -28,8 +27,9 @@ h2 {
   height: auto;
   min-height: calc(100vh - 300px);
   margin: 50px auto;
-  padding: 50px 0 10px 0;
-  background-color: white; }
+  padding: 50px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2); }
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   .container {
@@ -54,6 +54,12 @@ h2 {
     justify-content: space-between; }
     .form .form-row .form-control {
       width: 100%; }
+  .form .form-error {
+    background-color: #FFCDD2;
+    padding: 10px;
+    display: none; }
+  .form .form-message {
+    color: #B71C1C; }
   .form label, .form input, .form textarea {
     text-align: left;
     width: 100%;
@@ -94,7 +100,8 @@ h2 {
   padding: 10px 20px;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  cursor: pointer; }
+  cursor: pointer;
+  color: white; }
 
 .btn-primary {
   background-color: #2196F3;
@@ -102,6 +109,11 @@ h2 {
   .btn-primary:hover {
     background-color: #1976D2;
     color: white; }
+
+.btn-danger {
+  background-color: #F44336; }
+  .btn-danger:hover {
+    background-color: #D32F2F; }
 
 .btn-default {
   background-color: white;
@@ -137,7 +149,10 @@ h2 {
   font-weight: bold; }
 
 .date-time {
-  display: inline-flex; }
+  display: inline-flex;
+  /*justify-content: space-between;*/ }
+  .date-time p:first-of-type {
+    padding-right: 1vw; }
 
 .logo, .event-title span, .date-time > p {
   font-size: 14px; }
@@ -152,7 +167,10 @@ h2 {
       display: flex;
       height: 150px; }
       .event-list .event-item .event-title {
-        width: 65%; }
+        width: 60%; }
+      .event-list .event-item .icon {
+        float: top-right;
+        max-width: 10%; }
     .event-list .date-time {
       background-color: #2196F3;
       flex-direction: column;
@@ -171,7 +189,10 @@ h2 {
       display: flex;
       height: 150px; }
       .event-list .event-item .event-title {
-        width: 70%; }
+        width: 65%; }
+      .event-list .event-item .icon {
+        float: top-right;
+        max-width: 10%; }
     .event-list .date-time {
       background-color: #2196F3;
       flex-direction: column;
@@ -300,5 +321,11 @@ footer {
 .wdw {
   display: none; }
 
-#wdw-create-event {
+#wdw-events {
   display: block; }
+
+#wdw-events .container {
+  padding-top: 100px; }
+
+#wdw-event [data-status] {
+  display: none; }

@@ -10,9 +10,7 @@ var Setup = (function() {
 	var $wdw = $(".wdw");
 
 	var	$nav = $('.navbar');
-	var $navUL = $nav.find('ul');
-	var	$navAnchors = $navUL.find('li>a');
-
+	var	$navUL = $nav.find('ul');
 
     // INITIALIZE
 
@@ -64,7 +62,6 @@ var Setup = (function() {
 		var $activeNavAnchor = $navUL.find('.active');
 
 		$activeNavAnchor.removeClass('active');
-
 		$newActiveAnchor = $navUL.find('a[data-wdw= ' + wdwName + ']');
 		$newActiveAnchor.addClass('active');
 
@@ -72,6 +69,7 @@ var Setup = (function() {
 		$wdw.hide();
 		$(windowToShow).show();
 	}
+
 
 
 	//if browser doesn't support input type="date"

@@ -60,9 +60,8 @@ $nav-height: 50px;
 			}
 		}
 
-
+		// Don't display links that are displayeble only for loged in members
 		[data-auth="member"] {
-			// background-color:red;
 			display:none;
 		}
 			

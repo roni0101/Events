@@ -1,41 +1,65 @@
 
 <?php  
-
+header("Access-Control-Allow-Origin: *");
 
 $user = json_decode('{}');
 
 $result = json_decode('{}');
-$result->status = "";
-$result->response = "";
+$result->status = "success";
+$result->user = "";
 
 // get first name, last name ,email and passwrod from POST
-/// If you want use GET first just to test it
-// get user from ../db/users/users.json
 
+$email = $_POST["email"];
+$password = $_POST["password"];
+$firstName = $_POST["firstName"];
+$lastName = $_POST["lastName"];
+
+
+
+// Get users from ../db/users/users.json
+
+$fileUsers = "../../db/users/users.json";
+$arrUsers = json_decode( file_get_contents($fileUsers));
 
 // Check if email already exists 
 
-// if email exist set status  to fail and response to "Email already exist"
-// stringify result and return it;
+$length = count($arrUsers);
+for($i = 0; $i < $length; $i++ ){
+	$dbUser = $arrUsers[$i];
+	$dbEmail = $dbUser->email;
 
-// if everything is OK - set status to success 
-// generate unique id 
-// add data to user object
-// Follow the following object design
-/*
-	{
-		"id":"2",
-		"email":"email2",
-		"password":"password2",
-		"firstName": "John2",
-		"lastName": "Doe2"
+	if( $email == $dbEmail){
+		$result->status = "fail";
+
+		echo json_encode($result);
+		return;
 	}
-*/
+}
+
+
+$user = json_decode('{}');
+$user->id = uniqid();
+$user->email = $email;
+$user->password = $password;
+$user->firstName = $firstName;
+$user->lastName = $lastName;
+$user->eventsList = [];
+
 
 // Push object to array of users
+
+array_push($arrUsers, $user);
+
 // Stringify the array and save it back to ../db/users/users.json
+
+file_put_contents($fileUsers, json_encode($arrUsers, JSON_PRETTY_PRINT));
+
 // Return $result
 
+$result->user = $user;
+
+echo json_encode($result);
 
 
 ?>

@@ -13,7 +13,6 @@ var Events = (function () {
 		eventMember.text(membersNum);
 	}
 
-
 	return{
 		addMember:addMember,
 		removeMember:removeMember

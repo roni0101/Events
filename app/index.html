@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale = 1">
@@ -29,6 +28,10 @@
 	<div class="hide-nav">
 		<span><i class="fa fa-bars" aria-hidden="true"></i></span>
 	</div>
+	<!-- 
+		UL LI is generated from js when the app start
+		Content is taken from templates/ navul and navul-member
+	-->
 	<ul></ul>
 </nav>
 
@@ -37,13 +40,17 @@
 
 <main id="main-container">
 
+
+	<!-- HOME -->
+
 	<div class="wdw" id="wdw-home">
 		<div class="container">
-			
 		</div>
 	</div>
 
 
+
+	<!-- EVENTS -->
 
 	<div class="wdw" id="wdw-events">
 		<div class="container">
@@ -65,6 +72,44 @@
 			<!-- Content generated form JS - > app.js -->
 		</div>
 	</div>
+
+
+	<!-- CONTROL PANEL -->
+
+	<div class="wdw" id="wdw-control-panel">
+		<div class="container">
+			
+			<h2>CONTROL PANEL</h2>
+
+			<div class="row">
+				<button class="btn btn-primary btn-switch" data-wdw="create-event">CREATE EVENT</button>
+			</div>
+
+			<div class="item-list">
+
+				<div class="item-list__header">
+					<span class="item-list__title">Events manager</span>
+				</div>
+				<div class="item-list__content">
+
+					<div class="item event">
+						<div class="event__header">
+							<h3 class="event__title">Event title but long title. What about that</h3>
+						</div>
+						<div class="event__actions">
+							<button class="btn btn-primary"><i class="fa fa-edit"></i></button>
+							<button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+						</div>
+					</div><!-- End div ITEM -->
+					
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+
+	<!-- CREATE EVENT -->
 
 	<div class="wdw" id="wdw-create-event">
 		<div class="container">
@@ -112,12 +157,29 @@
 
 				<div class="form-control">
 					<button class="btn btn-primary act-create-event">CREATE EVENT</button>
+					<button class="btn btn-default btn-switch" data-wdw="control-panel">CANCEL</button>
 				</div>
 
 			</form>
 
 		</div>
 	</div>
+
+	<!-- EDIT EVENT -->
+	<div class="wdw" id="wdw-edit-event">
+		<div class="container">
+			<h2>EDIT EVENT</h2>
+			
+			<form class="form">
+			
+				<!-- GENERATED FROM JS -> auth.js -->
+			</form>
+
+		</div>
+	</div>
+
+
+	<!-- ACCOUNT -->
 
 	<div class="wdw" id="wdw-account">
 		
@@ -131,6 +193,8 @@
 
 	</div>
 
+
+	<!-- REGISTER -->
 
 	<div class="wdw" id="wdw-register">
 		<div class="container">
@@ -170,6 +234,9 @@
 			</form>
 		</div>
 	</div>
+
+
+		<!-- LOGIN -->
 
 	<div class="wdw" id="wdw-login">
 		<div class="container">

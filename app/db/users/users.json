@@ -5,6 +5,9 @@
         "password": "123",
         "firstName": "Admin",
         "lastName": "Admin",
-        "eventsList": []
+        "eventsList": [
+            "592d626bf181a592d626bf1824",
+            "592eeec8c5ae6592eeec8c5ae9"
+        ]
     }
 ]

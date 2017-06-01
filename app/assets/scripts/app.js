@@ -2,6 +2,8 @@ var App = (function () {
 
 
 	// CACHE DOM
+	var $wdwCpEvents = $('#wdw-control-panel');
+	var $cpEventsList = $wdwCpEvents.find('.item-list__content');
 
 	var $wdwEvents = $('#wdw-events');
 	var $wdwSingleEvent = $('#wdw-event');
@@ -10,6 +12,7 @@ var App = (function () {
 	var $searchInput = $wdwEvents.find('[name="event-name"]');
 	var $eventsList = $('.event-list');
 
+
 	var $nav = $('.navbar');
 	
 
@@ -17,6 +20,7 @@ var App = (function () {
 
 	var dataEvents;
 	var tempEvent;
+	var cpTempEvent;
 
 	// Init
 	function init() {
@@ -26,6 +30,8 @@ var App = (function () {
 		// Get event template and events data from Preloader
 		tempEvent = Preload.getSource('event-item.html');
 		dataEvents = Preload.getSource('events.json');
+
+		cpTempEvent = Preload.getSource('c-panel-event.html');
 
 		var navUl = Preload.getSource('nav-ul.html');
 		var navUlMember = Preload.getSource('nav-ul-member.html');
@@ -66,6 +72,7 @@ var App = (function () {
 		var matchTitleLength = matchTitle.length;
 
 		$eventsList.empty();
+		$cpEventsList.empty();
 
 		dataEvents.forEach(function (event) {
 
@@ -79,6 +86,12 @@ var App = (function () {
 				layoutEvent = layoutEvent.replace('{{ EVENTID }}', event.id);
 				layoutEvent = layoutEvent.replace('{{ EVENTID }}', event.id);
 
+
+				var cpLayouEvent = cpTempEvent.replace('{{ TITLE }}', event.title);
+				cpLayouEvent = cpLayouEvent.replace('{{ EVENTID }}', event.id);
+				cpLayouEvent = cpLayouEvent.replace('{{ EVENTID }}', event.id);
+
+				$cpEventsList.append(cpLayouEvent);
 
 				// Append to list 
 				$eventsList.append(layoutEvent);
@@ -95,7 +108,6 @@ var App = (function () {
 
 	function searchForEvent() {
 		var eventName = $searchInput.val();
-		var nameLength  = eventName.length;
 		displayAllEvents(eventName);
 	}
 
@@ -177,7 +189,7 @@ var App = (function () {
 	// EVENT LISTENERS
 
 	$(document).on('click', '.event-item', displayEvent);
-	$(document).on('keyup', $searchInput, searchForEvent);
+	$(document).on('keyup', '[name="event-name"]', searchForEvent);
 
 
 

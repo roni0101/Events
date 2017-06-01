@@ -23,6 +23,14 @@ var Preload = (function () {
 		{
 			type:'data',
 			name:'events.json'
+		},
+		{
+			type:'templates',
+			name:'c-panel-event.html'
+		},
+		{
+			type:'templates',
+			name:'cp-edit-event.html'
 		}
 	];
 	var url = 'assets/';

@@ -7,7 +7,18 @@
         "date": "21 June",
         "time": "17:30",
         "seats": "100",
-        "members": 10,
+        "members": 11,
         "location": "Lygten 37"
+    },
+    {
+        "id": "592eeec8c5ae6592eeec8c5ae9",
+        "title": "JavaScript Masterclass",
+        "organizer": "COPEN-TECH",
+        "description": "JavaScript is one of the three core technologies of World Wide Web content production; the majority of websites employ it, and all modern Web browsers support it without the need for plug-ins.JavaScript is prototype-based with first-class functions, making it a multi-paradigm language, supporting object-based, imperative, and functional programming styles",
+        "date": "5 June",
+        "time": "13:55",
+        "seats": "50",
+        "members": 1,
+        "location": "Lygten 16"
     }
 ]

@@ -4,7 +4,7 @@
 	height:auto;
 	min-height:calc(100vh - 300px);
 	margin: 50px auto;
-	padding:50px;
+	padding:10px;
 	background-color:white;
 	border:1px solid rgba(0,0,0, 0.2);
 }
@@ -12,10 +12,12 @@
 @include respond-to(medium) {
 	.container{
 		width: 80%;
+		padding:30px;
 	}
 }
 @include respond-to(large) {
 	.container{
 		width: 80%;
+		padding:50px;
 	}
 }

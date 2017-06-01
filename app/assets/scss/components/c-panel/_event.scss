@@ -1,0 +1,15 @@
+.event{
+	display:flex;
+	align-items:center;
+	padding:$padding;
+	flex-direction:column;
+
+	@include respond-to(large){
+		flex-direction: row;
+	}
+}
+
+.event__header{
+	display:flex;
+	flex-grow:1;
+}

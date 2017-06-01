@@ -13,6 +13,8 @@ var Auth = (function () {
 	var $registerWdw = $('#wdw-register');
 	var $eventWdw = $('#wdw-event');
 
+	var $wdwCpEditEvent = $('#wdw-edit-event');
+
 	var navUlMember;
 	var navUl;
 
@@ -157,6 +159,42 @@ var Auth = (function () {
 
 	}
 
+	function editEvent(e) {
+
+		
+		// get event id 
+		var eventId = $(e.currentTarget).attr('data-id');
+
+		// get event from events based on id
+		var events = Preload.getSource('events.json');
+		var editTemplate = Preload.getSource('cp-edit-event.html');
+
+
+		for (var i = 0; i < events.length; i++) {
+			var event = events[i];
+			var dbEventId = event.id;
+
+			if(eventId === dbEventId){
+
+				// populate template with event data
+
+				var editLayout = editTemplate;
+				for(key in event){
+					var placeholder = '{{ ' + key.toUpperCase() + ' }}';
+					editLayout = editLayout.replace(placeholder, event[key]);
+				}
+
+
+				$wdwCpEditEvent.find('.container form').append(editLayout);
+				break;
+			}
+		}
+		
+		Setup.switchWindow('edit-event');
+		// switch window 
+	}
+
+
 
 	var urlSignForEvent = api + 'user/sign-for-event.php';
 	function signForEvent(e) {
@@ -225,6 +263,7 @@ var Auth = (function () {
 	$doc.on('click', '.action-register', register);
 	$doc.on('click', '.action-sign-for-event', signForEvent);
 	$doc.on('click', '.action-sign-of-event', signOfEvent);
+	$doc.on('click', '.action-edit-event', editEvent);
 
 
 

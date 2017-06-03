@@ -25,6 +25,6 @@ array_push($arrEvents, $objEvent);
 $strEvents = json_encode($arrEvents, JSON_PRETTY_PRINT);
 file_put_contents($fileEvents, $strEvents);
 
-echo json_encode($objEvent);
+echo $strEvents;
 
 ?>

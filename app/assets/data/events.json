@@ -1,24 +1,13 @@
 [
     {
-        "id": "592d626bf181a592d626bf1824",
-        "title": "Intro to Front-end development",
-        "organizer": "COPEN-TECH",
-        "description": "Front-end web development, is the practice of producing HTML, CSS and JavaScript for a website or Web Application so that a user can see and interact with them directly. The challenge associated with front end development is that the tools and techniques used to create the front end of a website change constantly and so the developer needs to constantly be aware of how the field is developing",
-        "date": "21 June",
-        "time": "17:30",
-        "seats": "100",
-        "members": 11,
-        "location": "Lygten 37"
-    },
-    {
-        "id": "592eeec8c5ae6592eeec8c5ae9",
-        "title": "JavaScript Masterclass",
-        "organizer": "COPEN-TECH",
-        "description": "JavaScript is one of the three core technologies of World Wide Web content production; the majority of websites employ it, and all modern Web browsers support it without the need for plug-ins.JavaScript is prototype-based with first-class functions, making it a multi-paradigm language, supporting object-based, imperative, and functional programming styles",
-        "date": "5 June",
-        "time": "13:55",
-        "seats": "50",
-        "members": 1,
-        "location": "Lygten 16"
+        "id": "593325e3547c1593325e3547c4",
+        "title": "Second event",
+        "organizer": "CopenTech",
+        "description": "desc",
+        "date": "2017-06-15",
+        "time": "12:12",
+        "seats": "10",
+        "members": 2,
+        "location": "asd 12"
     }
 ]

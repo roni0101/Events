@@ -15,12 +15,14 @@ var Auth = (function () {
 
 	var $wdwCpEditEvent = $('#wdw-edit-event');
 
-	var navUlMember;
 	var navUl;
+	var navUlMember;
+	var navUlAdmin;
 
 	function init() {
-		navUlMember = Preload.getSource('nav-ul-member.html');
 		navUl = Preload.getSource('nav-ul.html');
+		navUlMember = Preload.getSource('nav-ul-member.html');
+		navUlAdmin = Preload.getSource('nav-ul-admin.html');
 	}
 
 
@@ -52,12 +54,17 @@ var Auth = (function () {
 				"password": userPassword
 			}
 		}).done(function (response) {
-
-
 			if(response.status === 'success'){
 				var user = JSON.stringify(response.user);
 				error.hide();
-				$nav.find('ul').empty().append(navUlMember);
+				$nav.find('ul').empty();
+
+				// Check if user is an Admin 
+				if(response.user.isAdmin){
+					$nav.find('ul').append(navUlAdmin);
+				}else{
+					$nav.find('ul').append(navUlMember);
+				}
 				localStorage.eventAcc = '{"logedin":"yes", "user":' + user + '}';
 				Setup.switchWindow('account');
 			}else{
@@ -115,25 +122,12 @@ var Auth = (function () {
 	}
 
 
-	var months = [
-		"January", "February", "March",
-		"April", "May", "June", "July",
-		"August", "September", "October",
-		"November", "December"
-	];
-
 	function createEvent() {
 		
 		var title = $createWdw.find('[name=title]').val();
 		var organizer = $createWdw.find('[name=organizer]').val();
 		var description = $createWdw.find('[name=description]').val();
-
 		var date = $createWdw.find('[name=date]').val();
-		date = new Date(date);
-		var month = months[date.getMonth()];
-		var day = date.getUTCDate();
-		date = day + " " + month; 
-
 		var time = $createWdw.find('[name=time]').val();
 		var seats = $createWdw.find('[name=seats]').val();
 		var location = $createWdw.find('[name=location]').val();
@@ -154,44 +148,94 @@ var Auth = (function () {
 				"location":location
 			}
 		}).done(function (response) {
-			console.log(response);
+
+			App.displayAllEvents('', response);
+			Setup.switchWindow('control-panel');
 		});
 
 	}
 
 	function editEvent(e) {
-
+		var events = Preload.getSource('events.json');
+		var editTemplate = Preload.getSource('cp-edit-event.html');
 		
 		// get event id 
 		var eventId = $(e.currentTarget).attr('data-id');
 
-		// get event from events based on id
-		var events = Preload.getSource('events.json');
-		var editTemplate = Preload.getSource('cp-edit-event.html');
-
+		$wdwCpEditEvent.find('.container form').empty();
 
 		for (var i = 0; i < events.length; i++) {
+
 			var event = events[i];
 			var dbEventId = event.id;
-
+			
+			// get event from events based on id
 			if(eventId === dbEventId){
 
 				// populate template with event data
-
 				var editLayout = editTemplate;
 				for(key in event){
 					var placeholder = '{{ ' + key.toUpperCase() + ' }}';
 					editLayout = editLayout.replace(placeholder, event[key]);
 				}
 
-
 				$wdwCpEditEvent.find('.container form').append(editLayout);
 				break;
 			}
 		}
-		
 		Setup.switchWindow('edit-event');
-		// switch window 
+	}
+
+
+	function saveEdits(e) {
+		var url = api + 'events/edit.php'
+
+		var eventId = $(e.currentTarget).attr('data-id');
+		var title = $wdwCpEditEvent.find('[name=title]').val();
+		var organizer = $wdwCpEditEvent.find('[name=organizer]').val();
+		var description = $wdwCpEditEvent.find('[name=description]').val();
+		var date = $wdwCpEditEvent.find('[name=date]').val();
+		var time = $wdwCpEditEvent.find('[name=time]').val();
+		var seats = $wdwCpEditEvent.find('[name=seats]').val();
+		var location = $wdwCpEditEvent.find('[name=location]').val();
+
+		$.ajax({
+			url:url,
+			method:'POST',
+			dataType:'JSON',
+			data:{
+				"id":eventId,
+				"title":title,
+				"organizer":organizer,
+				"description":description,
+				"date":date,
+				"time":time,
+				"seats":seats,
+				"location":location
+			}
+		}).done(function (response) {
+			App.displayAllEvents('', response);
+			Setup.switchWindow('control-panel');
+		});
+
+	}
+
+
+
+	var urlDeleteEvent = api + 'events/delete.php';
+	function deleteEvent(e) {
+		var eventId = $(e.currentTarget).attr('data-id');
+
+		$.ajax({
+			url:urlDeleteEvent,
+			method:"POST",
+			dataType:"JSON",
+			data:{
+				eventId:eventId
+			}
+		}).done(function (response) {
+			App.displayAllEvents("", response);
+		});
 	}
 
 
@@ -264,6 +308,8 @@ var Auth = (function () {
 	$doc.on('click', '.action-sign-for-event', signForEvent);
 	$doc.on('click', '.action-sign-of-event', signOfEvent);
 	$doc.on('click', '.action-edit-event', editEvent);
+	$doc.on('click', '.action-save-edits', saveEdits);
+	$doc.on('click', '.action-delete-event', deleteEvent);
 
 
 

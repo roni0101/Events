@@ -44,6 +44,7 @@ $user->email = $email;
 $user->password = $password;
 $user->firstName = $firstName;
 $user->lastName = $lastName;
+$user->isAdmin = false;
 $user->eventsList = [];
 
 

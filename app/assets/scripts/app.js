@@ -35,6 +35,7 @@ var App = (function () {
 
 		var navUl = Preload.getSource('nav-ul.html');
 		var navUlMember = Preload.getSource('nav-ul-member.html');
+		var navUlAdmin = Preload.getSource('nav-ul-admin.html');
 
 
 		// Populate template with data
@@ -49,7 +50,13 @@ var App = (function () {
 			
 			if(userAccout.logedin == "yes"){
 
-				$nav.find('ul').append(navUlMember)
+
+				// Check if user is an Admin 
+				if(userAccout.user.isAdmin){
+					$nav.find('ul').append(navUlAdmin);
+				}else{
+					$nav.find('ul').append(navUlMember);
+				}
 				// Append User status
 
 
@@ -66,35 +73,71 @@ var App = (function () {
 		
 	}
 
-	function displayAllEvents(nameToMatch) {
+	var months = [
+		"January", "February", "March",
+		"April", "May", "June", "July",
+		"August", "September", "October",
+		"November", "December"
+	];
+
+	function displayAllEvents(nameToMatch, data, wdwName ) {
 
 		var matchTitle = nameToMatch || "";
 		var matchTitleLength = matchTitle.length;
 
-		$eventsList.empty();
-		$cpEventsList.empty();
+		if(wdwName){
+			if(wdwName == "cp"){
+				$cpEventsList.empty();
+			}else{
+				$eventsList.empty();	
+			}
+
+		}else{
+			$eventsList.empty();	
+			$cpEventsList.empty();
+		}
+
+		if(data){
+			dataEvents = data;
+		}
 
 		dataEvents.forEach(function (event) {
 
 			if(matchTitle === "" || matchTitle.toLowerCase() === event.title.slice(0, matchTitleLength).toLowerCase() ){
 
+				var date = event.date;
+				date = new Date(date);
+				var month = months[date.getMonth()];
+				var day = date.getUTCDate();
+				date = day + " " + month; 
+
+
 				var layoutEvent = tempEvent.replace('{{ TITLE }}', event.title);
 				layoutEvent = layoutEvent.replace('{{ TIME }}', event.time);
-				layoutEvent = layoutEvent.replace('{{ DATE }}', event.date);
+				layoutEvent = layoutEvent.replace('{{ DATE }}', date);
 				layoutEvent = layoutEvent.replace('{{ MEMBERS }}', event.members);
 				layoutEvent = layoutEvent.replace('{{ ORGANIZER }}', event.organizer);
 				layoutEvent = layoutEvent.replace('{{ EVENTID }}', event.id);
 				layoutEvent = layoutEvent.replace('{{ EVENTID }}', event.id);
+			
 
 
 				var cpLayouEvent = cpTempEvent.replace('{{ TITLE }}', event.title);
 				cpLayouEvent = cpLayouEvent.replace('{{ EVENTID }}', event.id);
 				cpLayouEvent = cpLayouEvent.replace('{{ EVENTID }}', event.id);
 
-				$cpEventsList.append(cpLayouEvent);
 
-				// Append to list 
-				$eventsList.append(layoutEvent);
+				if(!wdwName){
+					$eventsList.append(layoutEvent);
+					$cpEventsList.append(cpLayouEvent);
+				}else{
+					if(wdwName == "cp"){
+						$cpEventsList.append(cpLayouEvent);
+					}else{
+						$eventsList.append(layoutEvent);	
+					}					
+				}
+
 			}
 			
 		});
@@ -106,9 +149,16 @@ var App = (function () {
 
 
 
-	function searchForEvent() {
-		var eventName = $searchInput.val();
-		displayAllEvents(eventName);
+	function searchForEvent(e) {
+		var input = $(e.currentTarget);
+		var inputWdw = input.attr('name');
+
+		var wdwName = 'a';
+		if(inputWdw == 'cp-event-name'){
+			wdwName = 'cp';
+		}
+		var eventName = input.val();
+		displayAllEvents(eventName, false, wdwName);
 	}
 
 
@@ -190,12 +240,14 @@ var App = (function () {
 
 	$(document).on('click', '.event-item', displayEvent);
 	$(document).on('keyup', '[name="event-name"]', searchForEvent);
+	$(document).on('keyup', '[name="cp-event-name"]', searchForEvent);
 
 
 
 
 	return {
-		init:init
+		init:init,
+		displayAllEvents:displayAllEvents
 	}
 
 

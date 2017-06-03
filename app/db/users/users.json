@@ -5,9 +5,18 @@
         "password": "123",
         "firstName": "Admin",
         "lastName": "Admin",
+        "isAdmin": true,
+        "eventsList": []
+    },
+    {
+        "id": "593339bbf393e",
+        "email": "my",
+        "password": "111",
+        "firstName": "asd",
+        "lastName": "asd",
+        "isAdmin": false,
         "eventsList": [
-            "592d626bf181a592d626bf1824",
-            "592eeec8c5ae6592eeec8c5ae9"
+            "593325e3547c1593325e3547c4"
         ]
     }
 ]

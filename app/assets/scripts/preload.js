@@ -21,6 +21,10 @@ var Preload = (function () {
 			name:'nav-ul-member.html'
 		},
 		{
+			type:'templates',
+			name:'nav-ul-admin.html'
+		},
+		{
 			type:'data',
 			name:'events.json'
 		},

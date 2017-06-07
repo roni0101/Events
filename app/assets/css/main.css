@@ -346,7 +346,8 @@ a, button {
     color: white;
     cursor: pointer; }
     .navbar .hide-nav i {
-      padding: 10px; }
+      padding: 10px;
+      transition: 0.3s; }
   .navbar ul {
     position: relative;
     margin-top: 50px;

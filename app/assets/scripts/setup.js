@@ -20,10 +20,20 @@ var Setup = (function() {
 
 
     // PRIVATE FUNCTIONS
-
-	function _hideShowNav(){	
+	function _hideShowNav(e){	
 		if( window.innerWidth < 992){
+
+			var nabBtn = $(e.currentTarget);
+
+			if($navUL.is(':visible')){
+				nabBtn.css('transform', 'rotate(0deg)');				
+			}else{
+				nabBtn.css('transform', 'rotate(-90deg)');
+			}
 			$navUL.toggle('blind', 300);
+
+
+
 		}
 	}
 	function _onWinResize() {

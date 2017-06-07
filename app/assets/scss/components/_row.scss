@@ -1,3 +1,10 @@
 .row{
 	margin:20px auto;
 }
+
+.row-centered{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-direction:column;
+}

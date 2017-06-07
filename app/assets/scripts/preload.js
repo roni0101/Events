@@ -35,6 +35,14 @@ var Preload = (function () {
 		{
 			type:'templates',
 			name:'cp-edit-event.html'
+		},
+		{
+			type:'templates',
+			name:'c-panel-admins.html'
+		},
+		{
+			type:'data',
+			name:'users.json'
 		}
 	];
 	var url = 'assets/';

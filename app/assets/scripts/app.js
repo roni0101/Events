@@ -18,8 +18,12 @@ var App = (function () {
 
 	// DATA 
 
+	var dataAdmins;
+	var tempAdmins;
+
 	var dataEvents;
 	var tempEvent;
+
 	var cpTempEvent;
 
 	// Init
@@ -30,6 +34,9 @@ var App = (function () {
 		// Get event template and events data from Preloader
 		tempEvent = Preload.getSource('event-item.html');
 		dataEvents = Preload.getSource('events.json');
+
+		tempAdmins = Preload.getSource('c-panel-admins.html')
+		dataAdmins = Preload.getSource('users.json');
 
 		cpTempEvent = Preload.getSource('c-panel-event.html');
 
@@ -79,6 +86,70 @@ var App = (function () {
 		"August", "September", "October",
 		"November", "December"
 	];
+
+	var cpList = $('.js-cp-switch');
+	var cpListTitle = $('.js-cp-title');
+
+	var btnShowEvents = $('.js-cp-switch-events');
+	var btnShowAdmins = $('.js-cp-switch-admins');
+
+	var btnAdd = $('.js-btn-add');
+
+
+	// Dsiplays admins in control panel
+	function displayAdmins(e, data) {
+
+		if(data){
+			dataAdmins = data;
+		}
+
+		btnShowAdmins.addClass('btn-active ');
+		btnShowEvents.removeClass('btn-active').addClass('btn-default');
+
+		cpListTitle.text('Administrators manager');
+
+		btnAdd
+			.attr('data-wdw', 'add-admin')
+			.removeClass('action-display-create-event-wdw')
+			.addClass('action-display-add-admin-wdw');
+		
+		cpList.empty();
+
+		dataAdmins.forEach(function (user) {
+
+			if(user.isAdmin){
+				var cpLayoutAdmin = tempAdmins.replace('{{ USERID }}', user.id);
+				cpLayoutAdmin = cpLayoutAdmin.replace('{{ FIRST_NAME }}', user.firstName);
+				cpLayoutAdmin = cpLayoutAdmin.replace('{{ LAST_NAME }}', user.lastName);
+				cpList.append(cpLayoutAdmin);				
+			}
+		});
+	}
+
+	// Dsiplays events in control panel
+	function displayEvents(e) {
+
+		btnShowAdmins.removeClass('btn-active').addClass('btn-default');
+		btnShowEvents.addClass('btn-active');
+		cpListTitle.text('Events manager');
+
+		btnAdd.attr('data-wdw', 'create-event')
+			.removeClass('action-display-add-admin-wdw')
+			.addClass('action-display-create-event-wdw');
+		
+		cpList.empty();
+
+		dataEvents.forEach(function (event) {
+
+			var cpLayouEvent = cpTempEvent.replace('{{ TITLE }}', event.title);
+			cpLayouEvent = cpLayouEvent.replace('{{ EVENTID }}', event.id);
+			cpLayouEvent = cpLayouEvent.replace('{{ EVENTID }}', event.id);
+			cpList.append(cpLayouEvent);
+		});
+	}
+
+
+
 
 	function displayAllEvents(nameToMatch, data, wdwName ) {
 
@@ -239,6 +310,8 @@ var App = (function () {
 	// EVENT LISTENERS
 
 	$(document).on('click', '.event-item', displayEvent);
+	$(document).on('click', '.js-cp-switch-admins', displayAdmins);
+	$(document).on('click', '.js-cp-switch-events', displayEvents);
 	$(document).on('keyup', '[name="event-name"]', searchForEvent);
 	$(document).on('keyup', '[name="cp-event-name"]', searchForEvent);
 
@@ -247,7 +320,8 @@ var App = (function () {
 
 	return {
 		init:init,
-		displayAllEvents:displayAllEvents
+		displayAllEvents:displayAllEvents,
+		displayAdmins:displayAdmins
 	}
 
 

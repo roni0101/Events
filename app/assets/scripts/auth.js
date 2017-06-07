@@ -8,10 +8,13 @@ var Auth = (function () {
 	var $doc = $(document);
 	var $nav = $('.navbar');
 
-	var $createWdw = $('#wdw-create-event');
 	var $loginWdw = $('#wdw-login');
 	var $registerWdw = $('#wdw-register');
+
 	var $eventWdw = $('#wdw-event');
+	var $createWdw = $('#wdw-create-event');
+
+	var $addAdminWdw = $('#wdw-add-admin');
 
 	var $wdwCpEditEvent = $('#wdw-edit-event');
 
@@ -26,16 +29,15 @@ var Auth = (function () {
 	}
 
 
+	 // Links for ajax
+	var api = 'http://localhost/git-projects/Events/app/api/';
 
 
-  // Links for ajax
 
-	var api = 'http://localhost/Interface-exam/Events/app/api/';
+
+/******************************************* USER *************************************/
 
 	var urlLogin =  api + 'user/login.php';
-
-
-	// Private functions
 
 	function login(){
 
@@ -122,6 +124,111 @@ var Auth = (function () {
 	}
 
 
+
+
+
+/******************************************* USER EVENTS *******************************************/
+
+	var urlSignForEvent = api + 'user/sign-for-event.php';
+	function signForEvent(e) {
+		var btn = $(e.target);
+		var eventId = btn.attr('data-id');
+		var user = JSON.parse(localStorage.eventAcc).user;
+		var userId = user.id;
+		
+
+		$.ajax({
+			url:urlSignForEvent,
+			method:"POST",
+			dataType:"JSON",
+			data:{
+				"userId":userId,
+				"eventId":eventId
+			}
+		}).done(function (response) {
+			$eventWdw.find('[data-status]').css('display', 'none');
+			$eventWdw.find('[data-status="signed"]').css('display', 'block');
+			var userLS = JSON.parse(localStorage.eventAcc);
+			userLS.user = response.user;
+			localStorage.eventAcc = JSON.stringify(userLS);
+			Events.addMember(eventId);
+		});
+	}
+
+
+	var urlSignOfEvent = api + 'user/sign-of-event.php';
+	function signOfEvent(e) {
+		var btn = $(e.target);
+		var eventId = btn.attr('data-id');
+		var user = JSON.parse(localStorage.eventAcc).user;
+		var userId = user.id;
+		
+
+		$.ajax({
+			url:urlSignOfEvent,
+			method:"POST",
+			dataType:"JSON",
+			data:{
+				"userId":userId,
+				"eventId":eventId
+			}
+		}).done(function (response) {
+			$eventWdw.find('[data-status]').css('display', 'none');
+			$eventWdw.find('[data-status="logged"]').css('display', 'block');
+			var userLS = JSON.parse(localStorage.eventAcc);
+			userLS.user = response.user;
+			localStorage.eventAcc = JSON.stringify(userLS);
+			Events.removeMember(eventId);
+		});
+	}
+
+
+
+
+
+
+
+
+
+/******************************************* ADMINS *************************************/
+
+ 
+function displayAddAdminWindow(e) {
+	var wdwName = $(e.currentTarget).attr('data-wdw');
+	Setup.switchWindow(wdwName);
+}
+
+
+function addAdmin() {
+	var userEmail = $addAdminWdw.find('[name=user-email]').val();
+	// do ajax
+	var urlAddAdmin = api + 'user/add-admin.php';
+
+	$.ajax({
+		url:urlAddAdmin,
+		method:'POST',
+		dataType:'JSON',
+		data:{
+			"email":userEmail
+		}
+
+	}).done(function (response) {
+		App.displayAdmins('', response);
+		Setup.switchWindow('control-panel');
+	});
+}
+
+
+
+
+/******************************************* EVENTS *******************************************/
+
+function displayCreateEventWindow(e) {
+	var wdwName = $(e.currentTarget).attr('data-wdw');
+	Setup.switchWindow(wdwName);
+}
+
+
 	function createEvent() {
 		
 		var title = $createWdw.find('[name=title]').val();
@@ -154,6 +261,31 @@ var Auth = (function () {
 		});
 
 	}
+
+
+	function removeAdmin(e) {
+		var userId = $(e.currentTarget).attr('data-id');
+
+		var urlRemoveAdmin = api + 'user/remove-admin.php';
+
+		$.ajax({
+			url:urlRemoveAdmin,
+			method:'POST',
+			dataType:'JSON',
+			data:{
+				"id":userId
+			}
+
+		}).done(function (response) {
+			App.displayAdmins('', response);
+			Setup.switchWindow('control-panel');
+		});
+	}
+
+
+
+
+
 
 	function editEvent(e) {
 		var events = Preload.getSource('events.json');
@@ -240,64 +372,6 @@ var Auth = (function () {
 
 
 
-	var urlSignForEvent = api + 'user/sign-for-event.php';
-	function signForEvent(e) {
-		var btn = $(e.target);
-		var eventId = btn.attr('data-id');
-		var user = JSON.parse(localStorage.eventAcc).user;
-		var userId = user.id;
-		
-
-		$.ajax({
-			url:urlSignForEvent,
-			method:"POST",
-			dataType:"JSON",
-			data:{
-				"userId":userId,
-				"eventId":eventId
-			}
-		}).done(function (response) {
-			$eventWdw.find('[data-status]').css('display', 'none');
-			$eventWdw.find('[data-status="signed"]').css('display', 'block');
-			var userLS = JSON.parse(localStorage.eventAcc);
-			userLS.user = response.user;
-			localStorage.eventAcc = JSON.stringify(userLS);
-			Events.addMember(eventId);
-		});
-	}
-
-
-	var urlSignOfEvent = api + 'user/sign-of-event.php';
-	function signOfEvent(e) {
-		var btn = $(e.target);
-		var eventId = btn.attr('data-id');
-		var user = JSON.parse(localStorage.eventAcc).user;
-		var userId = user.id;
-		
-
-		$.ajax({
-			url:urlSignOfEvent,
-			method:"POST",
-			dataType:"JSON",
-			data:{
-				"userId":userId,
-				"eventId":eventId
-			}
-		}).done(function (response) {
-			$eventWdw.find('[data-status]').css('display', 'none');
-			$eventWdw.find('[data-status="logged"]').css('display', 'block');
-			var userLS = JSON.parse(localStorage.eventAcc);
-			userLS.user = response.user;
-			localStorage.eventAcc = JSON.stringify(userLS);
-			Events.removeMember(eventId);
-		});
-	}
-
-
-
-	// Public functions
-
-
 
 	// Event listeners
 
@@ -310,7 +384,10 @@ var Auth = (function () {
 	$doc.on('click', '.action-edit-event', editEvent);
 	$doc.on('click', '.action-save-edits', saveEdits);
 	$doc.on('click', '.action-delete-event', deleteEvent);
-
+	$doc.on('click', '.action-add-admin', addAdmin);
+	$doc.on('click', '.action-remove-admin', removeAdmin);
+	$doc.on('click', '.action-display-add-admin-wdw', displayAddAdminWindow);
+	$doc.on('click', '.action-display-create-event-wdw', displayCreateEventWindow);
 
 
 	return {

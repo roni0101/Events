@@ -10,7 +10,7 @@ $eventId = $_POST['eventId'];
 
 
 // Get all users 
-$urlUsers = "../../db/users/users.json";
+$urlUsers = "../../assets/data/users.json";
 $arrUsers = file_get_contents($urlUsers);
 $arrUsers = json_decode($arrUsers);
 $usersLength = count($arrUsers);

@@ -16,22 +16,20 @@ $firstName = $_POST["firstName"];
 $lastName = $_POST["lastName"];
 
 
+$fileUsers = '../../assets/data/users.json';
+$strUsers = file_get_contents($fileUsers);
+$arrUsers = json_decode( $strUsers );
 
-// Get users from ../db/users/users.json
 
-$fileUsers = "../../db/users/users.json";
-$arrUsers = json_decode( file_get_contents($fileUsers));
+
 
 // Check if email already exists 
-
 $length = count($arrUsers);
 for($i = 0; $i < $length; $i++ ){
 	$dbUser = $arrUsers[$i];
 	$dbEmail = $dbUser->email;
-
 	if( $email == $dbEmail){
 		$result->status = "fail";
-
 		echo json_encode($result);
 		return;
 	}

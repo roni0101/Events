@@ -1,0 +1,40 @@
+[
+    {
+        "id": "59378c0b9697f",
+        "email": "admin",
+        "password": "123",
+        "firstName": "Master",
+        "lastName": "Administrator",
+        "isAdmin": true,
+        "eventsList": [
+            "59382eb76a82159382eb76a824"
+        ]
+    },
+    {
+        "id": "59381e75093ed",
+        "email": "roni",
+        "password": "123",
+        "firstName": "Roni",
+        "lastName": "Radev",
+        "isAdmin": true,
+        "eventsList": []
+    },
+    {
+        "id": "593823e925d3f",
+        "email": "tanya",
+        "password": "123",
+        "firstName": "Tanya",
+        "lastName": "Tanya",
+        "isAdmin": false,
+        "eventsList": []
+    },
+    {
+        "id": "5938296c9f0a5",
+        "email": "kevin",
+        "password": "123",
+        "firstName": "Kevin ",
+        "lastName": "Brown",
+        "isAdmin": true,
+        "eventsList": []
+    }
+]

@@ -53,17 +53,6 @@
 			</div>
 		</div>
 
-		<div class="container">
-			<h2>Discover events that suits your intrests</h2>
-			<p class="text-centered">Explore and discover groups in your area that are all about the things you love. 
-Meetup with people who love what you love, and keep the conversation going.</p>
-			
-			<div class="row row-centered">
-				<button class="btn btn-primary btn-switch" data-wdw="events">EXPLORE EVENTS</button>
-			</div>
-		</div>
-
-
 	</div>
 
 
@@ -105,27 +94,20 @@ Meetup with people who love what you love, and keep the conversation going.</p>
 
 			<h2>CONTROL PANEL</h2>
 
-			<div class="row row-centered">
-				<button class="btn btn-primary btn-switch" data-wdw="create-event">CREATE EVENT</button>
+			<div class="row">
+				<button class="btn btn-active js-cp-switch-events">EVENTS</button>
+				<button class="btn btn-default js-cp-switch-admins">ADMINISTRATORS</button>
 			</div>
 
 			<div class="item-list">
 
 				<div class="item-list__header">
-					<span class="item-list__title">Events manager</span>
+					<span class="item-list__title js-cp-title">Events manager</span>
+					<button class="item-list__action btn btn-complementary js-btn-add action-display-create-event-wdw" data-wdw="create-event"><i class="fa fa-plus-square-o"></i></button>
 				</div>
-				<div class="item-list__content">
+				<div class="item-list__content js-cp-switch">
 
-					<div class="item event">
-						<div class="event__header">
-							<h3 class="event__title">Event title but long title. What about that</h3>
-						</div>
-						<div class="event__actions">
-							<button class="btn btn-primary"><i class="fa fa-edit"></i></button>
-							<button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-						</div>
-					</div><!-- End div ITEM -->
-					
+					<!-- Content is generated form js -> app.js-->
 				</div>
 			</div>
 
@@ -200,6 +182,22 @@ Meetup with people who love what you love, and keep the conversation going.</p>
 			</form>
 
 		</div>
+	</div>
+
+	<div class="wdw" id="wdw-add-admin">
+		
+		<div class="container">
+			<form class="form">
+				<div class="form-control">
+					<input type="text" name="user-email" placeholder="User email">
+				</div>
+				<div class="form-control">
+					<button class="btn btn-primary action-add-admin">ADD ADMIN</button>
+					<button class="btn btn-default btn-switch" data-wdw="control-panel">CANCEL</button>
+				</div>
+			</form>
+		</div>
+
 	</div>
 
 

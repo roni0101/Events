@@ -17,9 +17,9 @@
 .btn-default{
 	background-color:white;
 	color:black;
-	border:1px solid rgba(0,0,0,0.2);
+	border:1px solid $secondary-color;
 
 	&:hover{
-		background-color:rgba(0,0,0, 0.1);
+		background-color:$secondary-color;
 	}
 }

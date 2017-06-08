@@ -31,9 +31,6 @@ var Setup = (function() {
 				nabBtn.css('transform', 'rotate(-90deg)');
 			}
 			$navUL.toggle('blind', 300);
-
-
-
 		}
 	}
 	function _onWinResize() {

@@ -36,7 +36,7 @@ var Auth = (function () {
 
 
 	 // Links for ajax
-	var api = 'http://localhost/git-projects/Events/app/api/';
+	var api = 'http://localhost/Interface-exam/Events/app/api/';
 
 
 
@@ -67,14 +67,16 @@ var Auth = (function () {
 				error.hide();
 				$nav.find('ul').empty();
 
+				localStorage.eventAcc = '{"logedin":"yes", "user":' + user + '}';
 				// Check if user is an Admin 
 				if(response.user.isAdmin){
 					$nav.find('ul').append(navUlAdmin);
+					Setup.switchWindow('control-panel');
 				}else{
 					$nav.find('ul').append(navUlMember);
+					Setup.switchWindow('events');
 				}
-				localStorage.eventAcc = '{"logedin":"yes", "user":' + user + '}';
-				Setup.switchWindow('control-panel');
+				
 			}else{
 				error.show();
 			}
@@ -110,11 +112,11 @@ var Auth = (function () {
 			if(response.status === "fail"){
 				error.show();
 			}else{
-				var user = JSON.stringify(response.user);
+				// var user = JSON.stringify(response.user);
 				error.hide();
-				$nav.find('ul').empty().append(navUlMember);
-				localStorage.eventAcc = '{"logedin":"yes", "user":' + user + '}';
-				Setup.switchWindow('account');
+				// $nav.find('ul').empty().append(navUlMember);
+				// localStorage.eventAcc = '{"logedin":"yes", "user":' + user + '}';
+				Setup.switchWindow('login');
 			}
 
 		});

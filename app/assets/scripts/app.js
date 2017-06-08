@@ -76,7 +76,7 @@ var App = (function () {
 			$nav.find('ul').append(navUl);
 		}
 
-		// Run app
+		run();
 		
 	}
 
@@ -215,7 +215,8 @@ var App = (function () {
 	}
 
 	function run() {
-		console.log('app running...');
+		$('.alert').addClass('alert_hidden');
+
 	}
 
 

@@ -7,7 +7,8 @@
         "lastName": "Administrator",
         "isAdmin": true,
         "eventsList": [
-            "59382eb76a82159382eb76a824"
+            "5938125686189593812568618e",
+            "5938125686189593812568618e"
         ]
     },
     {
@@ -17,7 +18,10 @@
         "firstName": "Roni",
         "lastName": "Radev",
         "isAdmin": true,
-        "eventsList": []
+        "eventsList": [
+            "5938125686189593812568618e",
+            "59382eb76a82159382eb76a824"
+        ]
     },
     {
         "id": "593823e925d3f",
@@ -25,7 +29,7 @@
         "password": "123",
         "firstName": "Tanya",
         "lastName": "Tanya",
-        "isAdmin": false,
+        "isAdmin": true,
         "eventsList": []
     },
     {

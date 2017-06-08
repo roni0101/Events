@@ -22,6 +22,12 @@ var Auth = (function () {
 	var navUlMember;
 	var navUlAdmin;
 
+	var $loader = $('.alert');
+
+
+
+
+
 	function init() {
 		navUl = Preload.getSource('nav-ul.html');
 		navUlMember = Preload.getSource('nav-ul-member.html');
@@ -68,7 +74,7 @@ var Auth = (function () {
 					$nav.find('ul').append(navUlMember);
 				}
 				localStorage.eventAcc = '{"logedin":"yes", "user":' + user + '}';
-				Setup.switchWindow('account');
+				Setup.switchWindow('control-panel');
 			}else{
 				error.show();
 			}

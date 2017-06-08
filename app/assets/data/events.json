@@ -7,7 +7,7 @@
         "date": "2017-06-15",
         "time": "12:30",
         "seats": "100",
-        "members": 0,
+        "members": 22,
         "location": "Lygten 37"
     },
     {
@@ -18,7 +18,7 @@
         "date": "2017-06-21",
         "time": "12:00",
         "seats": "50",
-        "members": 1,
+        "members": 7,
         "location": "Lygten 16"
     }
 ]

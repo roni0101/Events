@@ -1,0 +1,29 @@
+.loader{
+	position:relative;
+	width:80%;
+	max-width:200px;
+	height:10px;
+	background-color:$b-main-color;
+	overflow:hidden;
+}
+
+.loader__bar{
+	position:absolute;
+	top:0;
+	left:-100%;
+	width:50px;
+	height:10px;
+	background-color:$main-color;
+	animation: load 2s linear infinite;
+}
+
+@keyframes load{
+
+	0%{
+		left:-100%;
+	}
+	100%{
+		left:100%;
+	}
+
+}

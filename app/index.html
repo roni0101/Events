@@ -4,7 +4,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale = 1">
 
 
-	<title>Test</title>
+	<title>CopenTECH. Find all tech events in Copenhagen</title>
 
 	<!-- jQuery UI -->
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -23,7 +23,7 @@
 <body>
 <nav class="navbar">
 	<div class="nav-brand">
-		<a class="btn-switch" data-wdw="home" href="#">COPEN-TECH</a>
+		<a class="btn-switch" data-wdw="home" href="#"><img src="assets/images/logo.svg" class="btn-switch" data-wdw="home" alt="brand"></a>
 	</div>
 	<div class="hide-nav">
 		<span><i class="fa fa-bars" aria-hidden="true"></i></span>
@@ -36,6 +36,13 @@
 </nav>
 
 
+<div class="alert alert_default">
+	<div class="alert__container">
+		<div class="loader">
+			<div class="loader__bar"></div>
+		</div>
+	</div>
+</div>
 
 
 <main id="main-container">
@@ -48,7 +55,7 @@
 		<div class="jumbotron">
 			<img src="assets/images/cover.jpg" class="jumbotron__image">
 			<div class="jumbotron__content">
-				<div class="jumbotron__title">COPEN-TECH</div>
+				<div class="jumbotron__title">CopenTECH</div>
 				<div class="jumbotron__description">Events, conferences, meetings. Everything in one place</div>
 			</div>
 		</div>
@@ -67,6 +74,9 @@
 					<input type="text" name="event-name" placeholder="Event name">
 				</div>
 			</div>
+
+			<h2>EVENTS</h2>
+			<p class="text-centered text-secondary">Find the event that suits your interests</p>
 
 			<!-- The list is generated form JS -->
 			<div class="event-list"></div>
@@ -203,7 +213,7 @@
 
 	<!-- ACCOUNT -->
 
-	<div class="wdw" id="wdw-account">
+<!-- 	<div class="wdw" id="wdw-account">
 		
 		<div class="container">
 			<h2>ACCOUNT</h2>
@@ -213,7 +223,7 @@
 			</div>
 		</div>
 
-	</div>
+	</div> -->
 
 
 	<!-- REGISTER -->

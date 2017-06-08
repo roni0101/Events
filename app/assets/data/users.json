@@ -1,7 +1,7 @@
 [
     {
         "id": "59378c0b9697f",
-        "email": "admin",
+        "email": "admin@copentech.com",
         "password": "123",
         "firstName": "Master",
         "lastName": "Administrator",
@@ -13,7 +13,7 @@
     },
     {
         "id": "59381e75093ed",
-        "email": "roni",
+        "email": "roni@gmail.com",
         "password": "123",
         "firstName": "Roni",
         "lastName": "Radev",
@@ -24,16 +24,16 @@
     },
     {
         "id": "593823e925d3f",
-        "email": "tanya",
+        "email": "tanya@gmail.com",
         "password": "123",
         "firstName": "Tanya",
-        "lastName": "Tanya",
+        "lastName": "Fomenko",
         "isAdmin": true,
         "eventsList": []
     },
     {
         "id": "5938296c9f0a5",
-        "email": "kevin",
+        "email": "kevin@gmail.com",
         "password": "123",
         "firstName": "Kevin ",
         "lastName": "Brown",
@@ -50,32 +50,12 @@
         "eventsList": []
     },
     {
-        "id": "5939392a0631e",
-        "email": "b",
+        "id": "59396057e7146",
+        "email": "alpar@gmail.com",
         "password": "123",
-        "firstName": "b",
-        "lastName": "b",
-        "isAdmin": false,
-        "eventsList": []
-    },
-    {
-        "id": "5939509290099",
-        "email": "q",
-        "password": "q",
-        "firstName": "q",
-        "lastName": "q",
-        "isAdmin": false,
-        "eventsList": [
-            "5938125686189593812568618e"
-        ]
-    },
-    {
-        "id": "5939567e220f4",
-        "email": "roni2",
-        "password": "123",
-        "firstName": "Roni",
-        "lastName": "Rade ",
-        "isAdmin": false,
+        "firstName": "Andres",
+        "lastName": "Alpar",
+        "isAdmin": true,
         "eventsList": []
     }
 ]

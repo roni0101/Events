@@ -1,13 +1,57 @@
 [
     {
+        "id": "5938125686189593812568618e",
+        "title": "Intro to Angular 2",
+        "organizer": "COPEN-TECH",
+        "description": "AngularJS (commonly referred to as Angular.js or AngularJS 1.X) is a JavaScript-based open-source front-end web application framework mainly maintained by Google and by a community of individuals and corporations to address many of the challenges encountered in developing single-page applications",
+        "date": "2017-06-15",
+        "time": "12:30",
+        "seats": "100",
+        "members": 26,
+        "location": "Lygten 37"
+    },
+    {
         "id": "59382eb76a82159382eb76a824",
         "title": "SASS Masterclass",
         "organizer": "COPEN-TECH",
-        "description": "Description",
+        "description": "Sass is the most mature, stable, and powerful professional grade CSS extension language in the world. Sass boasts more features and abilities than any other CSS extension language out there. The Sass Core Team has worked endlessly to not only keep up, but stay ahead.",
         "date": "2017-06-21",
         "time": "12:00",
         "seats": "50",
         "members": 7,
         "location": "Lygten 16"
+    },
+    {
+        "id": "59395cb7b5e1559395cb7b5e1c",
+        "title": "JavaScript is evil",
+        "organizer": "CopenTECH",
+        "description": "JavaScript is a multi-paradigm language, since it supports prototype-based with first-class functions, imperative, and functional programming paradigms. It has an API for working with text, arrays, dates, regular expressions, and basic manipulation of the DOM, but does not include network, storage, or sophisticated graphics APIs, relying instead upon APIs made available by its host environment.",
+        "date": "2017-06-30",
+        "time": "17:30",
+        "seats": "60",
+        "members": 0,
+        "location": "Guldbergsgade 105"
+    },
+    {
+        "id": "59395de7c0c9359395de7c0c9b",
+        "title": "Become a pro in JAVA",
+        "organizer": "JavaTECH",
+        "description": "Java is a general-purpose computer programming language that is concurrent, class-based, object-oriented, and specifically designed to have as few implementation dependencies as possible. It is intended to let application developers \"write once, run anywhere\" (WORA), meaning that compiled Java code can run on all platforms that support Java without the need for recompilation",
+        "date": "2017-07-03",
+        "time": "14:30",
+        "seats": "200",
+        "members": 0,
+        "location": "Kongens Nytorv 12"
+    },
+    {
+        "id": "59395ecf46e6759395ecf46e74",
+        "title": "First look at UNITY",
+        "organizer": "Unity Technologies SF",
+        "description": "Unity is a cross-platform game engine developed by Unity Technologies, which is primarily used to develop video games and simulations for computers, consoles and mobile devices. First announced only for OS X, at Apple's Worldwide Developers Conference in 2005, it has since been extended to target 27 platforms.",
+        "date": "2017-07-12",
+        "time": "16:00",
+        "seats": "500",
+        "members": 0,
+        "location": "Fasenvej 45"
     }
 ]

@@ -1,0 +1,44 @@
+	<!-- FORM TITLE -->
+<div class="form-control">
+	<label>Title</label>
+	<input type="text" name="title" value="{{ TITLE }}">
+</div>
+
+<!-- FORM ORGANIZER -->
+<div class="form-control">
+	<label>Organizer</label>
+	<input type="text" name="organizer" value="{{ ORGANIZER }}">
+</div>
+
+<!-- DESCRIPTION -->
+<div class="form-control">
+	 <label>Description</label>
+	 <textarea name="description">{{ DESCRIPTION }}</textarea>
+</div>	
+
+<!-- FORM DATE and TIME -->
+<div class="form-control">
+	<label>Date</label>
+	<input type="date"  name="date" value="{{ DATE }}">
+</div>
+
+<div class="form-control">
+	<label>Time</label>
+	<input type="time" name="time" value="{{ TIME }}">
+</div>
+
+	<!-- SEATS -->
+<div class="form-control">
+	<label>Seats</label>
+	<input type="text" name="seats" value="{{ SEATS }}">
+</div>
+
+<div class="form-control">
+	<label>Location</label>
+	<input type="text" name="location" value="{{ LOCATION }}">
+</div>
+
+<div class="form-control">
+	<button class="btn btn-primary action-save-edits" data-id="{{ ID }}">SAVE CHANGES</button>
+	<button class="btn btn-default btn-switch" data-wdw="control-panel">CANCEL</button>
+</div>

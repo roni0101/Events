@@ -8,6 +8,7 @@ $nav-height: 50px;
 	height: auto;
 	min-height: $nav-height;
 	background-color: $d-main-color;
+	z-index:100;
 
 	a{
 		color:white;
@@ -30,6 +31,7 @@ $nav-height: 50px;
 
 		i{
 			padding:10px;
+			transition:0.3s;
 		}
 	}
 
@@ -60,9 +62,8 @@ $nav-height: 50px;
 			}
 		}
 
-
+		// Don't display links that are displayeble only for loged in members
 		[data-auth="member"] {
-			// background-color:red;
 			display:none;
 		}
 			

@@ -13,8 +13,36 @@ var Preload = (function () {
 			name:'event.html'
 		},
 		{
+			type:'templates',
+			name:'nav-ul.html'
+		},
+		{
+			type:'templates',
+			name:'nav-ul-member.html'
+		},
+		{
+			type:'templates',
+			name:'nav-ul-admin.html'
+		},
+		{
 			type:'data',
 			name:'events.json'
+		},
+		{
+			type:'templates',
+			name:'c-panel-event.html'
+		},
+		{
+			type:'templates',
+			name:'cp-edit-event.html'
+		},
+		{
+			type:'templates',
+			name:'c-panel-admins.html'
+		},
+		{
+			type:'data',
+			name:'users.json'
 		}
 	];
 	var url = 'assets/';

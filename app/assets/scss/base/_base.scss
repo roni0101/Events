@@ -1,5 +1,5 @@
 body{
-	background: white;
+	background-color: #EEEEEE;
 	font-family: 'Varela Round', sans-serif;
 }
 
@@ -10,4 +10,8 @@ body{
 
 h2{
 	text-align:center;
+}
+
+a, button{
+	transition:0.3s;
 }

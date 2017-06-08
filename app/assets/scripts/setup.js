@@ -10,9 +10,7 @@ var Setup = (function() {
 	var $wdw = $(".wdw");
 
 	var	$nav = $('.navbar');
-	var $navUL = $nav.find('ul');
-	var	$navAnchors = $navUL.find('li>a');
-
+	var	$navUL = $nav.find('ul');
 
     // INITIALIZE
 
@@ -22,10 +20,20 @@ var Setup = (function() {
 
 
     // PRIVATE FUNCTIONS
-
-	function _hideShowNav(){	
+	function _hideShowNav(e){	
 		if( window.innerWidth < 992){
+
+			var nabBtn = $(e.currentTarget);
+
+			if($navUL.is(':visible')){
+				nabBtn.css('transform', 'rotate(0deg)');				
+			}else{
+				nabBtn.css('transform', 'rotate(-90deg)');
+			}
 			$navUL.toggle('blind', 300);
+
+
+
 		}
 	}
 	function _onWinResize() {
@@ -64,7 +72,6 @@ var Setup = (function() {
 		var $activeNavAnchor = $navUL.find('.active');
 
 		$activeNavAnchor.removeClass('active');
-
 		$newActiveAnchor = $navUL.find('a[data-wdw= ' + wdwName + ']');
 		$newActiveAnchor.addClass('active');
 
@@ -72,6 +79,7 @@ var Setup = (function() {
 		$wdw.hide();
 		$(windowToShow).show();
 	}
+
 
 
 	//if browser doesn't support input type="date"

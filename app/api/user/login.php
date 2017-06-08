@@ -7,7 +7,7 @@ $password = $_POST['password'];
 // $email = 'email';
 // $password ='password';
 
-$strUsers = file_get_contents("../../db/users/users.json");
+$strUsers = file_get_contents("../../assets/data/users.json");
 
 $listUsers = json_decode($strUsers);
 $listLength = count($listUsers);

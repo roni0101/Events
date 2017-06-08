@@ -4,7 +4,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale = 1">
 
 
-	<title>Test</title>
+	<title>CopenTECH. Find all tech events in Copenhagen</title>
 
 	<!-- jQuery UI -->
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -23,51 +23,60 @@
 <body>
 <nav class="navbar">
 	<div class="nav-brand">
-		<a class="btn-switch" data-wdw="home" href="#">COPEN-TECH</a>
+		<a class="btn-switch" data-wdw="home" href="#"><img src="assets/images/logo.svg" class="btn-switch" data-wdw="home" alt="brand"></a>
 	</div>
 	<div class="hide-nav">
 		<span><i class="fa fa-bars" aria-hidden="true"></i></span>
 	</div>
-	<ul>
-		<li>
-			<a class="btn-switch" data-wdw="search" href="#">Search</a>
-		</li>
-		<li data-auth="non">
-			<a class="btn-switch" data-wdw="register" href="#">Register</a>
-		</li>
-		<li data-auth="non">
-			<a class="btn-switch" data-wdw="login" href="#">Login</a>
-		</li>
-		<li data-auth="member">
-			<a class="btn-switch" data-wdw="account" href="#">Account</a>
-		</li>
-		<li data-auth="member" >
-			<a class="btn-logout" href="#">Logout</a>
-		</li>
-	</ul>
+	<!-- 
+		UL LI is generated from js when the app start
+		Content is taken from templates/ navul and navul-member
+	-->
+	<ul></ul>
 </nav>
 
 
+<div class="alert alert_default">
+	<div class="alert__container">
+		<div class="loader">
+			<div class="loader__bar"></div>
+		</div>
+	</div>
+</div>
 
 
 <main id="main-container">
 
+
+	<!-- HOME -->
+
 	<div class="wdw" id="wdw-home">
-		<div class="container">
-			
+
+		<div class="jumbotron">
+			<img src="assets/images/cover.jpg" class="jumbotron__image">
+			<div class="jumbotron__content">
+				<div class="jumbotron__title">CopenTECH</div>
+				<div class="jumbotron__description">Events, conferences, meetings. Everything in one place</div>
+			</div>
 		</div>
+
 	</div>
 
 
 
-	<div class="wdw" id="wdw-search">
+	<!-- EVENTS -->
+
+	<div class="wdw" id="wdw-events">
 		<div class="container">
 			<div class="search-bar">
 				<div class="form-control">
 					<i class="fa fa-search"></i>
-					<input type="text">
+					<input type="text" name="event-name" placeholder="Event name">
 				</div>
 			</div>
+
+			<h2>EVENTS</h2>
+			<p class="text-centered text-secondary">Find the event that suits your interests</p>
 
 			<!-- The list is generated form JS -->
 			<div class="event-list"></div>
@@ -80,6 +89,43 @@
 			<!-- Content generated form JS - > app.js -->
 		</div>
 	</div>
+
+
+	<!-- CONTROL PANEL -->
+
+	<div class="wdw" id="wdw-control-panel">
+		<div class="container">
+			<div class="search-bar">
+				<div class="form-control">
+					<i class="fa fa-search"></i>
+					<input type="text" name="cp-event-name" placeholder="Event name">
+				</div>
+			</div>
+
+			<h2>CONTROL PANEL</h2>
+
+			<div class="row">
+				<button class="btn btn-active js-cp-switch-events">EVENTS</button>
+				<button class="btn btn-default js-cp-switch-admins">ADMINISTRATORS</button>
+			</div>
+
+			<div class="item-list">
+
+				<div class="item-list__header">
+					<span class="item-list__title js-cp-title">Events manager</span>
+					<button class="item-list__action btn btn-complementary js-btn-add action-display-create-event-wdw" data-wdw="create-event"><i class="fa fa-plus-square-o"></i></button>
+				</div>
+				<div class="item-list__content js-cp-switch">
+
+					<!-- Content is generated form js -> app.js-->
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+
+	<!-- CREATE EVENT -->
 
 	<div class="wdw" id="wdw-create-event">
 		<div class="container">
@@ -127,6 +173,7 @@
 
 				<div class="form-control">
 					<button class="btn btn-primary act-create-event">CREATE EVENT</button>
+					<button class="btn btn-default btn-switch" data-wdw="control-panel">CANCEL</button>
 				</div>
 
 			</form>
@@ -134,53 +181,113 @@
 		</div>
 	</div>
 
+	<!-- EDIT EVENT -->
+	<div class="wdw" id="wdw-edit-event">
+		<div class="container">
+			<h2>EDIT EVENT</h2>
+			
+			<form class="form">
+			
+				<!-- GENERATED FROM JS -> auth.js -->
+			</form>
+
+		</div>
+	</div>
+
+	<div class="wdw" id="wdw-add-admin">
+		
+		<div class="container">
+			<form class="form">
+				<div class="form-control">
+					<input type="text" name="user-email" placeholder="User email">
+				</div>
+				<div class="form-control">
+					<button class="btn btn-primary action-add-admin">ADD ADMIN</button>
+					<button class="btn btn-default btn-switch" data-wdw="control-panel">CANCEL</button>
+				</div>
+			</form>
+		</div>
+
+	</div>
+
+
+	<!-- ACCOUNT -->
+
+<!-- 	<div class="wdw" id="wdw-account">
+		
+		<div class="container">
+			<h2>ACCOUNT</h2>
+			<div class="row">
+				<span>Roni</span>
+				<span>Radev</span>
+			</div>
+		</div>
+
+	</div> -->
+
+
+	<!-- REGISTER -->
 
 	<div class="wdw" id="wdw-register">
 		<div class="container">
 			<form class="form">
 
 				<div class="form-control">
-					<label for="email"> Email: </label>
-					<input id="email" type="email" placeholder="Email" required="" />
+					<div class="form-error">
+						<span class="form-message">Email is already taken</span>
+					</div>
+				</div>
+			
+				<div class="form-control">
+					<label> Email: </label>
+					<input type="email" name="email" placeholder="Email" required="" />
 				</div>
 				<div class="form-row">
 					<div class="form-control">
-						<label for="firstName"> First Name: </label>
-						<input id="firstName" type="text" placeholder="First Name" required="" />
+						<label> First Name: </label>
+						<input type="text" name="first-name" placeholder="First Name" required="" />
 					</div>
 					<div class="form-control">
-						<label for="lastName"> Last Name: </label>
-						<input id="lastName" type="text" placeholder="Last Name" required="" />
+						<label> Last Name: </label>
+						<input type="text" name="last-name"  placeholder="Last Name" required="" />
 					</div>			
 				</div>
 				<div class="form-control">
-					<label for="password"> Password: </label>
-					<input id="password" type="password" placeholder="Password" required="" />
+					<label> Password: </label>
+					<input type="password" name="password" placeholder="Password" required="" />
 				</div>
 				<div class="form-control">
-					<label for="confirmPassword"> Confirm Password: </label>
-					<input id="confirmPassword" type="password" placeholder="Confirm Password" required="" />
+					<label> Confirm Password: </label>
+					<input type="password" placeholder="Confirm Password" required="" />
 				</div>
 				<div class="form-control">
-					<button class="btn btn-primary">REGISTER</button>
+					<button class="btn btn-primary action-register">REGISTER</button>
 				</div>
 			</form>
 		</div>
 	</div>
 
+
+		<!-- LOGIN -->
+
 	<div class="wdw" id="wdw-login">
 		<div class="container">
 			<form class="form">
 				<div class="form-control">
+					<div class="form-error">
+						<span class="form-message">Wrong email or password</span>
+					</div>
+				</div>
+				<div class="form-control">
 					<label for="email"> Email: </label>
-					<input id="email" type="email" placeholder="Email" required="" />
+					<input type="email" name="email" placeholder="Email" required="" />
 				</div>
 				<div class="form-control">
 					<label for="password"> Password: </label>
-					<input id="password" type="password" placeholder="Password" required="" />
+					<input type="password" name="password" placeholder="Password" required="" />
 				</div>
 				<div class="form-control">
-					<button class="btn btn-primary">LOGIN</button>
+					<button class="btn btn-primary action-login">LOGIN</button>
 				</div>
 			</form>
 		</div>
@@ -196,9 +303,10 @@
 	<!-- jQuery  UI -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 	
+	<script src="assets/scripts/event.js"></script>
+	<script src="assets/scripts/preload.js"></script>
 	<script src="assets/scripts/setup.js"></script>
 	<script src="assets/scripts/app.js"></script>
 	<script src="assets/scripts/auth.js"></script>
-	<script src="assets/scripts/preload.js"></script>
 </body>
 </html>

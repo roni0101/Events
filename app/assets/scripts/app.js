@@ -98,7 +98,7 @@ var App = (function () {
 
 	// Dsiplays admins in control panel
 	function displayAdmins(e, data) {
-
+		
 		if(data){
 			dataAdmins = data;
 		}

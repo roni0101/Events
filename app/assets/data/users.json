@@ -19,7 +19,6 @@
         "lastName": "Radev",
         "isAdmin": true,
         "eventsList": [
-            "5938125686189593812568618e",
             "59382eb76a82159382eb76a824"
         ]
     },
@@ -39,6 +38,44 @@
         "firstName": "Kevin ",
         "lastName": "Brown",
         "isAdmin": true,
+        "eventsList": []
+    },
+    {
+        "id": "5939265a1ab56",
+        "email": "a",
+        "password": "123",
+        "firstName": "a",
+        "lastName": "a",
+        "isAdmin": false,
+        "eventsList": []
+    },
+    {
+        "id": "5939392a0631e",
+        "email": "b",
+        "password": "123",
+        "firstName": "b",
+        "lastName": "b",
+        "isAdmin": false,
+        "eventsList": []
+    },
+    {
+        "id": "5939509290099",
+        "email": "q",
+        "password": "q",
+        "firstName": "q",
+        "lastName": "q",
+        "isAdmin": false,
+        "eventsList": [
+            "5938125686189593812568618e"
+        ]
+    },
+    {
+        "id": "5939567e220f4",
+        "email": "roni2",
+        "password": "123",
+        "firstName": "Roni",
+        "lastName": "Rade ",
+        "isAdmin": false,
         "eventsList": []
     }
 ]

@@ -1,16 +1,5 @@
 [
     {
-        "id": "5938125686189593812568618e",
-        "title": "Intro to JavaScript",
-        "organizer": "COPEN-TECH",
-        "description": "DEscription",
-        "date": "2017-06-15",
-        "time": "12:30",
-        "seats": "100",
-        "members": 22,
-        "location": "Lygten 37"
-    },
-    {
         "id": "59382eb76a82159382eb76a824",
         "title": "SASS Masterclass",
         "organizer": "COPEN-TECH",

@@ -36,7 +36,7 @@ var Auth = (function () {
 
 
 	 // Links for ajax
-	var api = 'http://localhost/test-site/2016-fall-web-dev/GitHub/Events/app/api/';
+	var api = 'http://localhost:8012/test-site/2016-fall-web-dev/GitHub/Events/app/api/';
 
 
 
